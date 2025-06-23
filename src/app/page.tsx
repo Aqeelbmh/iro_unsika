@@ -1,103 +1,220 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
+import { news } from './news/page'; // Import the news array from the news page
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.2 },
+};
+
+const fadeIn = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, amount: 0.2 },
+};
+
+const backgroundImages = [
+  '/assets/hero (1).jpeg',
+  '/assets/hero_2.png',
+  '/assets/hero_3.jpeg'
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { t } = useLanguage();
+  const [currentImage, setCurrentImage] = useState(0);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentImage((prevIndex) =>
+        prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+  }, [currentImage]);
+
+  return (
+    <div className="flex flex-col gap-16">
+      {/* Hero Banner */}
+      <motion.section
+        {...fadeInUp}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="relative text-gray-700 py-20 flex flex-col items-center justify-center text-center overflow-hidden min-h-[78vh]"
+      >
+        <AnimatePresence>
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            className="absolute inset-0 z-0"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src={backgroundImages[currentImage]}
+              alt="UNSIKA Campus Background"
+              fill
+              className="object-cover"
+              priority={currentImage === 0}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay for text readability */}
+          </motion.div>
+        </AnimatePresence>
+      </motion.section>
+
+      {/* Welcome Section */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center -mt-24 relative z-20">
+        {/* UNSIKA logo & Title */}
+        <motion.div 
+          {...fadeIn} 
+          transition={{ duration: 0.7, ease: 'easeOut' }} 
+          className="mb-6 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl shadow-2xl"
+        >
+          <motion.div whileHover={{ scale: 1.06 }} transition={{ type: 'spring', stiffness: 300 }}>
+            <Image
+              src="/assets/logo unsika (1).png" 
+              alt="UNSIKA Logo" 
+              width={160} 
+              height={160} 
+              className="object-contain mb-4 drop-shadow-lg"
+              priority
+            />
+          </motion.div>
+          <motion.span {...fadeIn} transition={{ duration: 0.7, ease: 'easeOut' }} className="text-2xl font-semibold text-gray-700 tracking-wide">International Relation Office</motion.span>
+        </motion.div>
+        
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-700 mt-8">Welcome to UNSIKA IRO</h1>
+        <p className="text-lg md:text-xl text-gray-500">Empowering global engagement, partnerships, and opportunities for students and scholars at Universitas Singaperbangsa Karawang.</p>
+      </motion.section>
+
+      {/* About UNSIKA IRO */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-gray-700">About UNSIKA IRO</h2>
+        <p className="text-lg text-gray-500">{t('home.about.description')}</p>
+      </motion.section>
+
+      {/* Vision and Mission */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-gray-700">Vision</h2>
+        <p className="mb-8 text-lg text-gray-500">
+          To become a dynamic and globally connected gateway that advances Universitas Singaperbangsa Karawang&apos;s role as a center of excellence in education, research, and community engagement through international collaboration and intercultural understanding.
+        </p>
+        <h2 className="text-2xl font-bold mb-4 text-gray-700">Mission</h2>
+        <ul className="text-lg text-gray-500 list-disc list-inside space-y-3 text-left max-w-2xl mx-auto mb-8">
+          <li>To develop and strengthen strategic international partnerships that support academic and research excellence.</li>
+          <li>To facilitate international mobility programs for students, lecturers, and researchers that foster global competencies and cross-cultural experiences.</li>
+          <li>To provide professional, accessible, and comprehensive services for international students, scholars, and partners.</li>
+          <li>To promote UNSIKA&apos;s global visibility and active participation in international academic networks and forums.</li>
+          <li>To ensure that all international programs reflect the values of integrity, innovation, inclusiveness, and contribution to sustainable development.</li>
+        </ul>
+      </motion.section>
+
+      {/* IUP Experience Highlight */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-3xl mx-auto px-4 text-center bg-blue-50/60 rounded-xl shadow-sm p-8 border border-blue-100/50 mb-8">
+        <h3 className="text-xl font-semibold mb-2 text-blue-700">Why Choose the International Undergraduate Program (IUP)?</h3>
+        <p className="text-lg text-blue-900">
+          The International Undergraduate Program (IUP) is not only about studying in college, but also about building cross-cultural experiences, strengthening global networks, and opening foreign students' insights into Indonesia from within.
+        </p>
+      </motion.section>
+
+      {/* Featured Programs */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-6xl mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-8 text-center text-gray-700">{t('home.featuredPrograms.title')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[0,1,2].map(idx => (
+            <motion.div
+              key={idx}
+              {...fadeInUp}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 + idx * 0.1 }}
+              className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(80,120,255,0.15)' }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
+                {idx === 0 && (
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )}
+                {idx === 1 && (
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+                  </svg>
+                )}
+                {idx === 2 && (
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                  </svg>
+                )}
+              </div>
+              <span className="text-blue-600 font-bold text-lg mb-2">
+                {[
+                  t('home.featuredPrograms.studentExchange.title'),
+                  t('home.featuredPrograms.internships.title'),
+                  t('home.featuredPrograms.scholarships.title'),
+                ][idx]}
+              </span>
+              <p className="text-gray-500 text-center">
+                {[
+                  t('home.featuredPrograms.studentExchange.description'),
+                  t('home.featuredPrograms.internships.description'),
+                  t('home.featuredPrograms.scholarships.description'),
+                ][idx]}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </motion.section>
+
+      {/* Latest News & Events */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-6xl mx-auto px-4">
+        <h2 className="text-2xl font-bold mb-8 text-center text-gray-700">{t('home.newsEvents.title')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {news.slice(0, 3).map((item: any, idx: number) => (
+            <motion.div
+              key={item.slug}
+              {...fadeInUp}
+              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 + idx * 0.1 }}
+              className="bg-white rounded-2xl shadow-lg border border-blue-100 p-7 flex flex-col justify-between hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(80,120,255,0.18)' }}
+            >
+              <div>
+                <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1 mb-3">{item.date}</span>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2 leading-tight line-clamp-2">{item.title}</h2>
+                <p className="text-gray-600 mb-4 line-clamp-3">{item.desc}</p>
+              </div>
+              <Link href={`/news/${item.slug}`} className="text-blue-600 hover:underline font-semibold mt-auto">{t('news.readMore')}</Link>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Quick Links */}
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-2xl font-bold mb-4 text-gray-700">{t('home.quickLinks.title')}</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {[
+            { href: '/downloads', label: t('home.quickLinks.downloadForms') },
+            { href: '/contact', label: t('home.quickLinks.contact') },
+          ].map((link, idx) => (
+            <motion.a
+              key={link.href}
+              href={link.href}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="bg-gradient-to-r from-blue-400 to-indigo-400 text-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+              transition={{ type: 'spring', stiffness: 300, delay: 0.1 + idx * 0.05, ease: 'easeOut' }}
+            >
+              {link.label}
+            </motion.a>
+          ))}
+        </div>
+      </motion.section>
     </div>
   );
 }
