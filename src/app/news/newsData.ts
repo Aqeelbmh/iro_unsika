@@ -1,4 +1,13 @@
-export const news = [
+interface NewsItem {
+  slug: string;
+  title: string;
+  date: string;
+  desc: string;
+  content: string;
+  images: string[];
+}
+
+export const news: NewsItem[] = [
   {
     slug: 'rector-of-unsika-highlights-legal-and-ethical-aspects-of-artificial-intelligence',
     title: 'Higher Education at International Forum in China',
@@ -14,9 +23,9 @@ export const news = [
   },
   {
     slug: 'unsika-health-science-bulgaria-global-collaboration',
-    title: 'UNSIKA's Faculty of Health Sciences Establishes Strategic Global Health Collaboration with Bulgarian Academy of Sciences',
+    title: "UNSIKA's Faculty of Health Sciences Establishes Strategic Global Health Collaboration with Bulgarian Academy of Sciences",
     date: '2024-04-22 to 26',
-    desc: 'UNSIKA's Faculty of Health Sciences partners with the Bulgarian Academy of Sciences to advance global health research, focusing on propolis safety during pregnancy and international scientific collaboration.',
+    desc: "UNSIKA's Faculty of Health Sciences partners with the Bulgarian Academy of Sciences to advance global health research, focusing on propolis safety during pregnancy and international scientific collaboration.",
     content: `Faculty of Health Sciences of UNSIKA Collaborates for Global Health Advancement in Bulgaria\n\nIn the midst of globalization dynamics, collaboration between research institutions from different countries plays a crucial role in addressing increasingly complex health challenges. A monumental step has been taken by the Faculty of Health Sciences (Fikes) at Universitas Singaperbangsa Karawang (UNSIKA), which recently established an international partnership with the Institute of Organic Chemistry with Centre of Phytochemistry, Bulgarian Academy of Sciences (IOCCP BAS). This partnership not only marks a collaboration between two renowned institutions but also signifies a major milestone in the advancement of global health sciences.\n\nFrom April 22 to 26, 2024, a delegation from Fikes UNSIKA, led by the Dean, Dr. Kosasih, S.E., M.M., and the Head of the Department of Public Health and Sports, Dr. Al Mukhlas Fikri, S.Gz., M.Si., participated in a series of activities to launch this promising collaboration. The visit began with in-depth discussions on potential joint research in various health-related fields.\n\nA key highlight of the visit was the signing of a Memorandum of Understanding (MoU) and a Memorandum of Agreement (MoA), formalizing both parties' commitment to a close and sustainable partnership. The collaboration will focus primarily on research, with a core theme centered around the safety of propolis use during pregnancy.\n\nGuided by a shared vision to improve global health, this research will be co-led by Dr. Al Mukhlas Fikri from Fikes UNSIKA and Professor Milena Popova from IOCCP BAS. Both are esteemed experts in their respective fields, bringing together their knowledge and expertise to drive meaningful scientific discoveries for global benefit.\n\nBeyond joint research, the collaboration will also include:\n\nScientific manuscript mentoring: Supporting researchers from both institutions in producing high-quality scientific publications.\n\nInternational webinars: Providing a platform for global health professionals and academics to exchange insights and present the latest findings.\n\nThe partnership between Fikes UNSIKA and IOCCP BAS represents more than just an institutional collaboration—it embodies a shared commitment to innovation and solution-driven efforts to enhance global health. By combining knowledge, technology, and resources, this initiative is expected to mark a new chapter in the collective pursuit of a healthier world for all.`,
     images: [
       '/assets/news/news 2/1.jpeg',
