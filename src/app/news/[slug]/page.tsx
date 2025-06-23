@@ -17,11 +17,16 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
         <Image src="/assets/news/news 2.jpeg" alt="Event Image 2" width={300} height={200} className="rounded-lg object-cover" />
       </div>
       <p className="text-gray-500 text-sm mb-6">{item.date}</p>
+      <div className="text-lg text-gray-700 prose text-justify mb-6">
+        {item.content.split('\n\n')[0]}
+      </div>
       <div className="flex gap-4 mb-6">
         <Image src="/assets/news/news 3.jpeg" alt="Event Image 3" width={300} height={200} className="rounded-lg object-cover" />
         <Image src="/assets/news/news 4.jpeg" alt="Event Image 4" width={300} height={200} className="rounded-lg object-cover" />
       </div>
-      <div className="text-lg text-gray-700 prose text-justify">{item.content}</div>
+      <div className="text-lg text-gray-700 prose text-justify">
+        {item.content.split('\n\n').slice(1).join('\n\n')}
+      </div>
     </div>
   );
 }
