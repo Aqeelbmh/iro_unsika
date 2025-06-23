@@ -31,7 +31,8 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
             alt={item.title + ' image ' + (imgIdx + 1)}
             width={500}
             height={350}
-            className="rounded-lg object-cover shadow-lg"
+            className="rounded-lg object-contain shadow-lg bg-gray-100"
+            style={{ maxHeight: 350, width: 'auto', maxWidth: '100%', height: 'auto' }}
             unoptimized
           />
         </div>
@@ -55,7 +56,8 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
 export function generateStaticParams() {
   return [
     { slug: 'rector-of-unsika-highlights-legal-and-ethical-aspects-of-artificial-intelligence' },
-    { slug: 'international-summer-course-2024' },
+    { slug: 'iconicss-2024-unsika-tech-conference-bandung' },
+    { slug: 'unsika-student-exchange-uitm-malaysia-2025' },
     { slug: 'scholarship-applications-open' },
     { slug: 'new-partnership-with-seoul-university' },
   ];
