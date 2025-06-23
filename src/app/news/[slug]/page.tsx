@@ -21,7 +21,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
         <Image src="/assets/news/news 3.jpeg" alt="Event Image 3" width={300} height={200} className="rounded-lg object-cover" />
         <Image src="/assets/news/news 4.jpeg" alt="Event Image 4" width={300} height={200} className="rounded-lg object-cover" />
       </div>
-      <div className="text-lg text-gray-700 prose">{item.content}</div>
+      <div className="text-lg text-gray-700 prose text-justify">{item.content}</div>
     </div>
   );
 }
