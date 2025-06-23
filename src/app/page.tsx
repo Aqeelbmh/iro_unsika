@@ -119,7 +119,7 @@ export default function Home() {
       <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-3xl mx-auto px-4 text-center bg-blue-50/60 rounded-xl shadow-sm p-8 border border-blue-100/50 mb-8">
         <h3 className="text-xl font-semibold mb-2 text-blue-700">Why Choose the International Undergraduate Program (IUP)?</h3>
         <p className="text-lg text-blue-900">
-          The International Undergraduate Program (IUP) is not only about studying in college, but also about building cross-cultural experiences, strengthening global networks, and opening foreign students' insights into Indonesia from within.
+          The International Undergraduate Program (IUP) is not only about studying in college, but also about building cross-cultural experiences, strengthening global networks, and opening foreign students&apos; insights into Indonesia from within.
         </p>
       </motion.section>
 
@@ -175,7 +175,7 @@ export default function Home() {
       <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-6xl mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8 text-center text-gray-700">{t('home.newsEvents.title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {news.slice(0, 3).map((item: any, idx: number) => (
+          {news.slice(0, 3).map((item, idx: number) => (
             <motion.div
               key={item.slug}
               {...fadeInUp}

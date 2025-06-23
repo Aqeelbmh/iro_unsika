@@ -18,9 +18,9 @@ const news = [
           <Image src="/assets/news/news 4.jpeg" alt="Forum 4" width={600} height={350} className="rounded-lg shadow object-cover w-full h-56" />
         </div>
         <p>In his presentation, Prof. Ade Maman Suherman emphasized the importance of legal and ethical aspects in the development and application of Artificial Intelligence (AI) in higher education. He highlighted that while AI offers significant opportunities to improve the quality and accessibility of education, it also presents challenges related to data privacy, academic integrity, and the potential for bias in automated decision-making.</p>
-        <p>"Universities must play an active role in ensuring that the use of AI in education is guided by strong ethical principles and legal frameworks," said Prof. Ade. He also encouraged international collaboration to develop global standards and best practices for AI in education.</p>
+        <p>&quot;Universities must play an active role in ensuring that the use of AI in education is guided by strong ethical principles and legal frameworks,&quot; said Prof. Ade. He also encouraged international collaboration to develop global standards and best practices for AI in education.</p>
         <p>The conference was attended by representatives from more than 20 countries, including academics, policymakers, and industry leaders. The event provided a platform for sharing experiences and strategies to enhance the quality and relevance of technical and vocational education in the era of digital transformation.</p>
-        <p>UNSIKA's participation in this international forum reflects its commitment to global engagement and its proactive role in addressing emerging issues in higher education.</p>
+        <p>UNSIKA&apos;s participation in this international forum reflects its commitment to global engagement and its proactive role in addressing emerging issues in higher education.</p>
       </>
     ),
   },
