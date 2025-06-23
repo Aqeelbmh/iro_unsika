@@ -8,25 +8,45 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
   const item = news.find(n => n.slug === slug);
   if (!item) return notFound();
 
+  // Split content into paragraphs
+  const paragraphs = item.content.split('\n\n');
+  const images = item.images || [];
+  const total = paragraphs.length + images.length;
+  // Calculate how often to insert images
+  const interval = Math.ceil(paragraphs.length / (images.length + 1));
+
+  // Build an array interleaving paragraphs and images
+  let contentWithImages: React.ReactNode[] = [];
+  let imgIdx = 0;
+  for (let i = 0; i < paragraphs.length; i++) {
+    contentWithImages.push(
+      <p key={`p-${i}`} className="mb-6 text-lg text-gray-700 text-justify">{paragraphs[i]}</p>
+    );
+    // Insert image after every interval, but not after the last paragraph
+    if (images.length > 0 && imgIdx < images.length && (i + 1) % interval === 0) {
+      contentWithImages.push(
+        <div key={`img-${imgIdx}`} className="flex justify-center my-8">
+          <Image
+            src={images[imgIdx]}
+            alt={item.title + ' image ' + (imgIdx + 1)}
+            width={500}
+            height={350}
+            className="rounded-lg object-cover shadow-lg"
+            unoptimized
+          />
+        </div>
+      );
+      imgIdx++;
+    }
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <Link href="/news" className="text-blue-600 hover:underline mb-4 inline-block">&larr; Back to News</Link>
       <h1 className="text-3xl font-bold mb-2 text-gray-700">{item.title}</h1>
-      <div className="flex gap-4 mb-6 justify-center">
-        <Image src="/assets/news/news 2/1.jpeg" alt="Bulgaria Collaboration 1" width={300} height={200} className="rounded-lg object-cover" />
-        <Image src="/assets/news/news 2/2.jpeg" alt="Bulgaria Collaboration 2" width={300} height={200} className="rounded-lg object-cover" />
-        <Image src="/assets/news/news 2/3.jpeg" alt="Bulgaria Collaboration 3" width={300} height={200} className="rounded-lg object-cover" />
-      </div>
       <p className="text-gray-500 text-sm mb-6">{item.date}</p>
-      <div className="text-lg text-gray-700 prose text-justify mb-6">
-        {item.content.split('\n\n')[0]}
-      </div>
-      <div className="flex gap-4 mb-6">
-        <Image src="/assets/news/news 3.jpeg" alt="Event Image 3" width={300} height={200} className="rounded-lg object-cover" />
-        <Image src="/assets/news/news 4.jpeg" alt="Event Image 4" width={300} height={200} className="rounded-lg object-cover" />
-      </div>
-      <div className="text-lg text-gray-700 prose text-justify">
-        {item.content.split('\n\n').slice(1).join('\n\n')}
+      <div className="prose prose-lg text-justify text-gray-700">
+        {contentWithImages}
       </div>
     </div>
   );
