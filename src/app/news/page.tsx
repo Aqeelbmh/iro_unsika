@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
+import Image from 'next/image';
 import { news } from './newsData';
 
 const fadeInUp = {
@@ -32,10 +33,13 @@ export default function NewsPage() {
             >
               {item.images && item.images.length > 0 && (
                 <div className="h-48 w-full overflow-hidden flex items-center justify-center bg-blue-50">
-                  <img
+                  <Image
                     src={item.images[0]}
                     alt={item.title}
+                    width={400}
+                    height={300}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                    priority={idx === 0}
                   />
                 </div>
               )}
