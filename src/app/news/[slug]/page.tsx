@@ -42,4 +42,13 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
       <div className="text-lg text-gray-700 prose">{item.content}</div>
     </div>
   );
+}
+
+export function generateStaticParams() {
+  return [
+    { slug: 'rector-of-unsika-highlights-legal-and-ethical-aspects-of-artificial-intelligence' },
+    { slug: 'international-summer-course-2024' },
+    { slug: 'scholarship-applications-open' },
+    { slug: 'new-partnership-with-seoul-university' },
+  ];
 } 
