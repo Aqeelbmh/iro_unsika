@@ -172,23 +172,33 @@ export default function Home() {
       </motion.section>
 
       {/* Latest News & Events */}
-      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-8 text-center text-gray-700">{t('home.newsEvents.title')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-6xl mx-auto px-4 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl py-12 mb-12">
+        <h2 className="text-3xl font-bold mb-10 text-center text-blue-800 drop-shadow-lg">{t('home.newsEvents.title')}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {news.slice(0, 3).map((item, idx: number) => (
             <motion.div
               key={item.slug}
               {...fadeInUp}
               transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 + idx * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg border border-blue-100 p-7 flex flex-col justify-between hover:shadow-2xl transition-all duration-300"
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px rgba(80,120,255,0.18)' }}
+              className="bg-white rounded-3xl shadow-xl border border-blue-100 p-0 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 overflow-hidden group"
+              whileHover={{ scale: 1.04, boxShadow: '0 12px 32px rgba(80,120,255,0.18)' }}
             >
-              <div>
-                <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1 mb-3">{item.date}</span>
-                <h2 className="text-2xl font-bold text-gray-800 mb-2 leading-tight line-clamp-2">{item.title}</h2>
-                <p className="text-gray-600 mb-4 line-clamp-3">{item.desc}</p>
+              {/* Featured Image */}
+              <div className="h-44 w-full overflow-hidden flex items-center justify-center bg-blue-50">
+                <img
+                  src={'/assets/news/news 2/1.jpeg'}
+                  alt={item.title}
+                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <Link href={`/news/${item.slug}`} className="text-blue-600 hover:underline font-semibold mt-auto">{t('news.readMore')}</Link>
+              <div className="p-7 flex flex-col flex-1">
+                <span className="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1 mb-3 self-start shadow-sm">{item.date}</span>
+                <h2 className="text-2xl font-bold text-gray-800 mb-2 leading-tight line-clamp-2 group-hover:text-blue-700 transition-colors duration-200">{item.title}</h2>
+                <p className="text-gray-600 mb-4 line-clamp-3 text-base">{item.desc}</p>
+                <div className="mt-auto">
+                  <Link href={`/news/${item.slug}`} className="inline-block text-white bg-blue-700 hover:bg-blue-800 font-semibold px-5 py-2 rounded-full shadow transition-colors duration-200">{t('news.readMore')}</Link>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
