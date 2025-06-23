@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { news } from './news/page'; // Import the news array from the news page
+import { news } from './news/newsData'; // Import the news array from the news page
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },

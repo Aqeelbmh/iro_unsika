@@ -3,18 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
-
-export const news = [
-  {
-    slug: 'rector-of-unsika-highlights-legal-and-ethical-aspects-of-artificial-intelligence',
-    title: 'Higher Education at International Forum in China',
-    date: '2025-05-23/24',
-    desc: "This activity marks the continuation of UNSIKA's participation in the 2025 Belt and Road Academic Conference on Technical and Vocational Education and Training (TVET), held on May 23–24, 2025, in Shenzhen, China.",
-  },
-  { slug: 'international-summer-course-2024', title: 'International Summer Course 2024', date: '2024-07-15', desc: 'Join our upcoming summer course with international lecturers and students.' },
-  { slug: 'scholarship-applications-open', title: 'Scholarship Applications Open', date: '2024-08-01', desc: 'Apply now for scholarships for the 2024/2025 academic year.' },
-  { slug: 'new-partnership-with-seoul-university', title: 'New Partnership with Seoul University', date: '2024-07-20', desc: 'UNSIKA IRO establishes a new partnership for joint research and student exchange.' },
-];
+import { news } from './newsData';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
