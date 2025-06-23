@@ -29,8 +29,8 @@ const news = [
   { slug: 'new-partnership-with-seoul-university', title: 'New Partnership with Seoul University', date: '2024-07-20', content: 'Full details about the new partnership with Seoul University. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.' },
 ];
 
-export default function NewsDetailPage(props: { params: { slug: string } }) {
-  const slug = decodeURIComponent(props.params.slug);
+export default function NewsDetailPage({ params }: { params: { slug: string } }) {
+  const slug = decodeURIComponent(params.slug);
   const item = news.find(n => n.slug === slug);
   if (!item) return notFound();
 
