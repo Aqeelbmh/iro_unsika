@@ -81,7 +81,7 @@ export default function AboutPage() {
               </motion.ul>
             </motion.div>
             
-            <motion.div 
+            <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
@@ -106,8 +106,8 @@ export default function AboutPage() {
                 ))}
               </motion.ul>
             </motion.div>
-          </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
         {/* Our Team */}
         <motion.section 
@@ -310,7 +310,7 @@ export default function AboutPage() {
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="w-12 h-12 bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                >
+            >
                   {milestone.year}
                 </motion.div>
                 <div>
@@ -355,8 +355,8 @@ export default function AboutPage() {
             >
               Explore Programs
             </motion.a>
-          </motion.div>
-        </motion.section>
+        </motion.div>
+      </motion.section>
       </div>
     </div>
   );

@@ -131,14 +131,14 @@ export default function GalleryPage() {
           >
             {[
               {
-                title: 'UNSIKA International Office Overview',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                desc: 'Learn about our international programs and opportunities'
+                title: 'Profile of Universitas Singaperbangsa Karawang | UNSIKA 2025',
+                url: 'https://www.youtube.com/embed/YZY0aJxMRz4',
+                desc: 'Learn about our international programs and opportunities at UNSIKA International Office.'
               },
               {
-                title: 'Student Exchange Program Highlights',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-                desc: 'See our students\' experiences in international exchange programs'
+                title: 'Universitas Singaperbangsa Karawang | Video Profile',
+                url: 'https://www.youtube.com/embed/w6Ij7lqrZPg',
+                desc: 'See our students\' experiences in international exchange programs and cultural activities.'
               },
             ].map((video, index) => (
               <motion.div 
@@ -153,6 +153,7 @@ export default function GalleryPage() {
                     title={video.title}
                     className="w-full h-full"
                     allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   />
                 </div>
                 <div>
@@ -176,26 +177,24 @@ export default function GalleryPage() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {[
-              '/assets/gallery/IMG_4610.jpeg',
-              '/assets/gallery/hero (1).jpeg',
-              '/assets/gallery/hero_2.png',
-              '/assets/gallery/hero_3.jpeg',
+              '/assets/01e696e9-ffac-4639-848b-9ce52e6d4dbb.jpg',
+              '/assets/IMG_4610.jpeg',
             ].map((image, index) => (
               <motion.div 
                 key={index}
                 variants={staggerItem}
                 whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(80,120,255,0.15)' }}
-                className="relative overflow-hidden rounded-lg aspect-square"
+                className="relative overflow-hidden rounded-lg aspect-video"
               >
                 <Image
                   src={image}
                   alt={`Campus life image ${index + 1}`}
                   fill
                   className="object-cover transition-transform duration-300 hover:scale-110"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <motion.div 
                   initial={{ opacity: 0 }}
