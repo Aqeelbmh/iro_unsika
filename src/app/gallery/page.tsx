@@ -5,9 +5,21 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const photos = [
-  { src: '/assets/placeholder.svg', alt: 'Event 1', category: 'Events' },
-  { src: '/assets/placeholder.svg', alt: 'Campus', category: 'Campus' },
-  { src: '/assets/placeholder.svg', alt: 'Students', category: 'Students' },
+  // Events
+  { src: '/assets/gallery/IMG20231204122013.jpg', alt: 'International Conference Event', category: 'Events' },
+  { src: '/assets/gallery/IMG20241025145140 (1).jpg', alt: 'Student Exchange Program Event', category: 'Events' },
+  { src: '/assets/gallery/IMG_5173.jpg', alt: 'Academic Workshop Event', category: 'Events' },
+  { src: '/assets/gallery/IMG_5155.jpg', alt: 'International Seminar Event', category: 'Events' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.51.59.jpeg', alt: 'Collaboration Meeting Event', category: 'Events' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.00 (1).jpeg', alt: 'Partnership Signing Event', category: 'Events' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.01 (1).jpeg', alt: 'International Conference Session', category: 'Events' },
+  
+  // Campus
+  { src: '/assets/gallery/Jepang.jpg', alt: 'UNSIKA Campus View', category: 'Campus' },
+  { src: '/assets/gallery/WhatsApp Image 2024-04-30 at 14.30.59.jpeg', alt: 'Campus Facilities', category: 'Campus' },
+  
+  // Students
+  { src: '/assets/gallery/photo_2024-10-15_15-26-36 (1).jpg', alt: 'Student Activities', category: 'Students' },
   { src: '/assets/01e696e9-ffac-4639-848b-9ce52e6d4dbb.jpg', alt: 'Student Activity 1', category: 'Students' },
   { src: '/assets/IMG_4610.jpeg', alt: 'Student Activity 2', category: 'Students' },
 ];
