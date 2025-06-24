@@ -5,29 +5,28 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const photos = [
-  // Events
-  { src: '/assets/gallery/IMG20231204122013.jpg', alt: 'International Conference Event', category: 'Events' },
-  { src: '/assets/gallery/IMG20241025145140 (1).jpg', alt: 'Student Exchange Program Event', category: 'Events' },
-  { src: '/assets/gallery/IMG_5173.jpg', alt: 'Academic Workshop Event', category: 'Events' },
-  { src: '/assets/gallery/IMG_5155.jpg', alt: 'International Seminar Event', category: 'Events' },
-  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.51.59.jpeg', alt: 'Collaboration Meeting Event', category: 'Events' },
-  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.00 (1).jpeg', alt: 'Partnership Signing Event', category: 'Events' },
-  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.01 (1).jpeg', alt: 'International Conference Session', category: 'Events' },
-  
-  // Campus
-  { src: '/assets/gallery/Jepang.jpg', alt: 'UNSIKA Campus View', category: 'Campus' },
-  { src: '/assets/gallery/WhatsApp Image 2024-04-30 at 14.30.59.jpeg', alt: 'Campus Facilities', category: 'Campus' },
-  
-  // Students
-  { src: '/assets/gallery/photo_2024-10-15_15-26-36 (1).jpg', alt: 'Student Activities', category: 'Students' },
-  { src: '/assets/01e696e9-ffac-4639-848b-9ce52e6d4dbb.jpg', alt: 'Student Activity 1', category: 'Students' },
-  { src: '/assets/IMG_4610.jpeg', alt: 'Student Activity 2', category: 'Students' },
+  // New gallery images
+  { src: '/assets/gallery/WhatsApp Image 2024-04-30 at 14.30.59.jpeg', alt: 'UNSIKA Event 1', category: 'Events' },
+  { src: '/assets/gallery/Jepang.jpg', alt: 'Japan Collaboration', category: 'Events' },
+  { src: '/assets/gallery/IMG20231204122013.jpg', alt: 'Campus Activity 1', category: 'Campus' },
+  { src: '/assets/gallery/IMG20241025145140 (1).jpg', alt: 'Campus Activity 2', category: 'Campus' },
+  { src: '/assets/gallery/photo_2024-10-15_15-26-36 (1).jpg', alt: 'Student Activity 1', category: 'Students' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.01 (1).jpeg', alt: 'Student Activity 2', category: 'Students' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.00 (1).jpeg', alt: 'Student Activity 3', category: 'Students' },
+  { src: '/assets/gallery/WhatsApp Image 2024-11-22 at 11.51.59.jpeg', alt: 'Student Activity 4', category: 'Students' },
+  { src: '/assets/gallery/IMG_5173.jpg', alt: 'Campus Activity 3', category: 'Campus' },
+  { src: '/assets/gallery/IMG_5155.jpg', alt: 'Campus Activity 4', category: 'Campus' },
+  // Existing images
+  { src: '/assets/01e696e9-ffac-4639-848b-9ce52e6d4dbb.jpg', alt: 'Student Activity 5', category: 'Students' },
+  { src: '/assets/IMG_4610.jpeg', alt: 'Student Activity 6', category: 'Students' },
 ];
 const categories = ['All', 'Events', 'Campus', 'Students'];
 
 const videos = [
   { title: 'UNSIKA IO Introduction', url: 'https://www.youtube.com/embed/G5Dyn8dixHw' },
-  { title: 'Universitas Singaperbangsa Karawang | Video Profile ', url: 'https://www.youtube.com/watch?v=w6Ij7lqrZPg' },
+  { title: 'Student Exchange Program', url: 'https://www.youtube.com/embed/9bZkp7q19f0' },
+  // Add your new video here - please provide the video URL
+  // { title: 'New Video Title', url: 'https://www.youtube.com/embed/YOUR_VIDEO_ID' },
 ];
 
 const fadeInUp = {
