@@ -27,7 +27,7 @@ const categories = ['All', 'Events', 'Campus', 'Students'];
 
 const videos = [
   { title: 'UNSIKA IO Introduction', url: 'https://www.youtube.com/embed/G5Dyn8dixHw' },
-  { title: 'Student Exchange Program', url: 'https://www.youtube.com/embed/9bZkp7q19f0' },
+  { title: 'Universitas Singaperbangsa Karawang | Video Profile ', url: 'https://www.youtube.com/watch?v=w6Ij7lqrZPg' },
 ];
 
 const fadeInUp = {
