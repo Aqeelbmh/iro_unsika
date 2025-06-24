@@ -158,6 +158,11 @@ export interface Translations {
     learnMore: string;
     contactUs: string;
   };
+
+  news: {
+    title: string;
+    readMore: string;
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -310,6 +315,10 @@ export const translations: Record<Language, Translations> = {
       learnMore: 'Learn More',
       contactUs: 'Contact Us',
     },
+    news: {
+      title: 'News Title',
+      readMore: 'Read More',
+    },
   },
   id: {
     nav: {
@@ -459,6 +468,10 @@ export const translations: Record<Language, Translations> = {
     common: {
       learnMore: 'Pelajari Lebih Lanjut',
       contactUs: 'Hubungi Kami',
+    },
+    news: {
+      title: 'Judul Berita',
+      readMore: 'Baca Selengkapnya',
     },
   },
 }; 
