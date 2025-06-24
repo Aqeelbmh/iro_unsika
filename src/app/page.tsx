@@ -60,7 +60,7 @@ export default function Home() {
               src={backgroundImages[currentImage]}
               alt="UNSIKA Campus Background"
               fill
-              className="object-cover object-center sm:object-top"
+              className="object-cover object-top sm:object-center"
               priority={currentImage === 0}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent z-10" /> {/* Enhanced overlay */}
