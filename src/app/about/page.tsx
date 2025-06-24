@@ -38,13 +38,21 @@ export default function AboutPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
-      <motion.div 
-        {...fadeInUp} 
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="mb-8"
+      {/* Hero Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="relative mb-12 rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-sky-100/60 via-white/80 to-white/30 border border-sky-100"
       >
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">About UNSIKA International Office</h1>
-        <p className="text-lg text-gray-600">Learn about our mission, vision, and the dedicated team behind UNSIKA's international programs.</p>
+        <div className="absolute inset-0 bg-[url('/assets/Partner/1699343145215.jpg')] bg-cover bg-center opacity-10" />
+        <div className="relative z-10 p-10 flex flex-col md:flex-row items-center gap-8">
+          <Image src="/assets/logo unsika (1).png" alt="UNSIKA Logo" width={100} height={100} className="rounded-xl bg-white/80 p-2 shadow-md" />
+          <div>
+            <h1 className="text-4xl font-extrabold text-sky-800 mb-2 drop-shadow">About UNSIKA International Office</h1>
+            <p className="text-lg text-gray-700 max-w-2xl">Learn about our mission, vision, and the dedicated team behind UNSIKA's international programs.</p>
+          </div>
+        </div>
       </motion.div>
 
       <div className="space-y-12">
@@ -113,15 +121,16 @@ export default function AboutPage() {
         <motion.section 
           {...fadeInUp} 
           transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-          className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8"
+          className="bg-gradient-to-br from-white/40 via-sky-50 to-white/10 backdrop-blur-lg border border-white/30 rounded-2xl shadow-2xl p-8"
         >
           <motion.h2 
             variants={staggerItem}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="text-2xl font-bold text-gray-800 mb-8 text-center"
+            className="text-2xl font-bold text-gray-800 mb-8 text-center flex items-center gap-2 justify-center"
           >
+            <span className="inline-block w-2 h-6 bg-sky-500 rounded-full mr-2"></span>
             Our Team
           </motion.h2>
           <motion.div 
@@ -167,11 +176,11 @@ export default function AboutPage() {
                 key={index}
                 variants={staggerItem}
                 whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(80,120,255,0.15)' }}
-                className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center"
+                className="relative bg-white/60 backdrop-blur-lg border border-sky-100 rounded-2xl shadow-xl p-6 text-center overflow-hidden group"
               >
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
-                  className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden"
+                  className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-sky-200 shadow-md bg-white/80"
                 >
                   <Image
                     src={member.image}
@@ -181,9 +190,10 @@ export default function AboutPage() {
                     sizes="128px"
                   />
                 </motion.div>
-                <h3 className="font-bold text-gray-800 mb-1">{member.name}</h3>
+                <h3 className="font-bold text-gray-800 mb-1 group-hover:text-sky-700 transition-colors duration-200">{member.name}</h3>
                 <p className="text-sky-600 font-medium mb-3">{member.position}</p>
-                <p className="text-gray-600 text-sm">{member.desc}</p>
+                <p className="text-gray-600 text-sm group-hover:text-gray-800 transition-colors duration-200">{member.desc}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-100/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
               </motion.div>
             ))}
           </motion.div>

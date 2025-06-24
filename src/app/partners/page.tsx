@@ -41,9 +41,12 @@ export default function PartnersPage() {
         <motion.section 
           {...fadeInUp} 
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8"
+          className="bg-gradient-to-br from-white/40 via-sky-50 to-white/10 backdrop-blur-lg border border-white/30 rounded-2xl shadow-2xl p-8"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Featured Partners</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span className="inline-block w-2 h-6 bg-sky-500 rounded-full mr-2"></span>
+            Featured Partners
+          </h2>
           <motion.div 
             variants={staggerContainer}
             initial="initial"
@@ -90,25 +93,26 @@ export default function PartnersPage() {
                   boxShadow: '0 12px 36px 0 rgba(80,120,255,0.18)',
                   zIndex: 2
                 }}
-                className="bg-white/30 backdrop-blur-lg border border-white/40 rounded-2xl shadow-xl p-8 flex flex-col items-center hover:shadow-2xl transition-all duration-300 min-h-[340px]"
+                className="relative bg-white/60 backdrop-blur-lg border border-sky-100 rounded-2xl shadow-xl p-8 flex flex-col items-center hover:shadow-2xl transition-all duration-300 min-h-[340px] overflow-hidden group"
               >
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="relative w-24 h-24 mb-4 rounded-full overflow-hidden border-2 border-sky-100 shadow-md bg-white/60"
+                  className="relative w-24 h-24 mb-4 rounded-full overflow-hidden border-2 border-sky-200 shadow-md bg-white/80"
                 >
                   <Image src={partner.logo} alt={partner.name} fill className="object-contain" />
                 </motion.div>
-                <span className="font-semibold text-sky-700 text-lg mb-1 text-center">{partner.name}</span>
+                <span className="font-semibold text-sky-700 text-lg mb-1 text-center group-hover:text-sky-900 transition-colors duration-200">{partner.name}</span>
                 <div className="flex items-center gap-2 mb-2">
                   <motion.span 
                     whileHover={{ scale: 1.2 }}
-                    className="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-lg font-bold text-gray-600"
+                    className="w-5 h-5 bg-sky-100 rounded-full flex items-center justify-center text-lg font-bold text-gray-600"
                   >
                     {partner.flag}
                   </motion.span>
                   <span className="text-gray-500 text-sm">{partner.country}</span>
                 </div>
-                <p className="text-gray-600 text-sm text-center mt-2">{partner.brief}</p>
+                <p className="text-gray-600 text-sm text-center mt-2 group-hover:text-gray-800 transition-colors duration-200">{partner.brief}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-100/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl" />
               </motion.div>
             ))}
           </motion.div>
