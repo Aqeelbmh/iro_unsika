@@ -55,20 +55,4 @@ export const news: NewsItem[] = [
       '/assets/news/news 4/2.jpeg',
     ],
   },
-  {
-    slug: 'scholarship-applications-open',
-    title: 'Scholarship Applications Open',
-    date: '2024-08-01',
-    desc: 'Apply now for scholarships for the 2024/2025 academic year.',
-    content: 'Full details about scholarship applications. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.',
-    images: [],
-  },
-  {
-    slug: 'new-partnership-with-seoul-university',
-    title: 'New Partnership with Seoul University',
-    date: '2024-07-20',
-    desc: 'UNSIKA IRO establishes a new partnership for joint research and student exchange.',
-    content: 'Full details about the new partnership with Seoul University. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.',
-    images: [],
-  },
 ]; 
