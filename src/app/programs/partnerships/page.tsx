@@ -125,93 +125,27 @@ export default function PartnershipsPage() {
             </motion.div>
           </motion.section>
 
-          {/* Featured Partners */}
+          {/* Partnership Process */}
           <motion.section 
             {...fadeInUp} 
-            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
             className="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6"
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Featured Partners</h2>
-            <motion.div 
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Partnership Process</h2>
+            <motion.ol 
               variants={staggerContainer}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="space-y-6"
+              className="list-decimal pl-6 text-gray-600 space-y-3"
             >
-              {[
-                {
-                  name: 'University of Technology Sydney',
-                  country: 'Australia',
-                  countryColor: 'bg-green-100 text-green-700',
-                  desc: 'Leading technology university with strong focus on innovation and industry collaboration.',
-                  programs: ['Student Exchange', 'Joint Research', 'Faculty Exchange'],
-                  focusAreas: ['Engineering', 'Technology', 'Innovation']
-                },
-                {
-                  name: 'National University of Singapore',
-                  country: 'Singapore',
-                  countryColor: 'bg-red-100 text-red-700',
-                  desc: 'Premier research university in Asia with comprehensive academic programs.',
-                  programs: ['Student Exchange', 'Joint Research', 'Faculty Exchange'],
-                  focusAreas: ['Engineering', 'Technology', 'Innovation']
-                },
-                {
-                  name: 'Chulalongkorn University',
-                  country: 'Thailand',
-                  countryColor: 'bg-yellow-100 text-yellow-700',
-                  desc: 'Regional partner for cultural exchange and Southeast Asian studies, promoting regional cooperation.',
-                  programs: ['Cultural Exchange', 'Language Programs', 'Regional Studies'],
-                  focusAreas: ['Languages', 'Culture', 'Regional Studies']
-                },
-              ].map((partner, index) => (
-                <motion.div 
-                  key={index}
-                  variants={staggerItem}
-                  whileHover={{ scale: 1.02 }}
-                  className="border border-gray-200 rounded-lg p-6"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-semibold text-sky-700 text-lg">{partner.name}</h3>
-                    <motion.span 
-                      whileHover={{ scale: 1.05 }}
-                      className={`${partner.countryColor} px-3 py-1 rounded-full text-sm font-medium`}
-                    >
-                      {partner.country}
-                    </motion.span>
-                  </div>
-                  <p className="text-gray-600 mb-3">{partner.desc}</p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <span className="font-medium text-gray-700">Programs:</span>
-                      <motion.ul 
-                        variants={staggerContainer}
-                        className="list-disc pl-4 text-gray-600 mt-1"
-                      >
-                        {partner.programs.map((program, programIndex) => (
-                          <motion.li key={programIndex} variants={staggerItem}>
-                            {program}
-                          </motion.li>
-                        ))}
-                      </motion.ul>
-                    </div>
-                    <div>
-                      <span className="font-medium text-gray-700">Focus Areas:</span>
-                      <motion.ul 
-                        variants={staggerContainer}
-                        className="list-disc pl-4 text-gray-600 mt-1"
-                      >
-                        {partner.focusAreas.map((area, areaIndex) => (
-                          <motion.li key={areaIndex} variants={staggerItem}>
-                            {area}
-                          </motion.li>
-                        ))}
-                      </motion.ul>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+              <motion.li variants={staggerItem}>Initial contact and expression of interest</motion.li>
+              <motion.li variants={staggerItem}>Exploratory meetings and discussions</motion.li>
+              <motion.li variants={staggerItem}>Memorandum of Understanding (MoU) drafting and signing</motion.li>
+              <motion.li variants={staggerItem}>Development of specific agreements and action plans</motion.li>
+              <motion.li variants={staggerItem}>Implementation and monitoring of joint activities</motion.li>
+              <motion.li variants={staggerItem}>Regular review and evaluation of the partnership</motion.li>
+            </motion.ol>
           </motion.section>
 
           {/* Partnership Benefits */}
