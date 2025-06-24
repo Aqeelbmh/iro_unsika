@@ -45,7 +45,7 @@ export default function Home() {
       <motion.section
         {...fadeInUp}
         transition={{ duration: 0.7, ease: 'easeOut' }}
-        className="relative text-gray-700 py-20 flex flex-col items-center justify-center text-center overflow-hidden min-h-[78vh]"
+        className="relative text-gray-700 py-20 flex flex-col items-center justify-center text-center overflow-hidden min-h-[60vh] sm:min-h-[78vh]"
       >
         <AnimatePresence>
           <motion.div
