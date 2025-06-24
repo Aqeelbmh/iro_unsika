@@ -22,7 +22,9 @@ const fadeIn = {
 const backgroundImages = [
   '/assets/hero (1).jpeg',
   '/assets/hero_2.png',
-  '/assets/hero_3.jpeg'
+  '/assets/hero_3.jpeg',
+  '/assets/gallery/IMG_5155.jpg',
+  '/assets/gallery/Jepang.jpg',
 ];
 
 export default function Home() {
@@ -52,8 +54,8 @@ export default function Home() {
             key={currentImage}
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 2.5, ease: 'easeInOut' }}
             className="absolute inset-0 z-0"
           >
             <Image
@@ -63,18 +65,18 @@ export default function Home() {
               className="object-cover"
               priority={currentImage === 0}
             />
-            <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent z-10" /> {/* Enhanced overlay */}
           </motion.div>
         </AnimatePresence>
       </motion.section>
 
       {/* Welcome Section */}
-      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center -mt-24 relative z-20">
+      <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center -mt-36 relative z-20">
         {/* UNSIKA logo & Title */}
         <motion.div 
           {...fadeIn} 
           transition={{ duration: 0.7, ease: 'easeOut' }} 
-          className="mb-6 flex flex-col items-center bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl shadow-2xl"
+          className="mb-6 flex flex-col items-center bg-white/30 backdrop-blur-lg border border-white/40 p-8 rounded-3xl shadow-2xl"
         >
           <motion.div whileHover={{ scale: 1.06 }} transition={{ type: 'spring', stiffness: 300 }}>
             <Image
