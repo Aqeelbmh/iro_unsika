@@ -50,20 +50,32 @@ export default function Home() {
         <AnimatePresence>
           <motion.div
             key={currentImage}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 2.5, ease: 'easeInOut' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: 'easeInOut' }}
             className="absolute inset-0 z-0"
           >
+            {/* Blurred Background */}
+            <Image
+              src={backgroundImages[currentImage]}
+              alt=""
+              fill
+              className="object-cover"
+              style={{ filter: 'blur(8px)', transform: 'scale(1.1)' }}
+              priority={currentImage === 0}
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/50 z-10" />
+
+            {/* Contained Foreground Image */}
             <Image
               src={backgroundImages[currentImage]}
               alt="UNSIKA Campus Background"
               fill
-              className="object-cover object-top sm:object-center"
+              className="object-contain z-20"
               priority={currentImage === 0}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent z-10" /> {/* Enhanced overlay */}
           </motion.div>
         </AnimatePresence>
       </motion.section>
