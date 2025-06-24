@@ -20,11 +20,9 @@ const fadeIn = {
 };
 
 const backgroundImages = [
-  '/assets/hero (1).jpeg',
-  '/assets/hero_2.png',
-  '/assets/hero_3.jpeg',
-  '/assets/gallery/IMG_5155.jpg',
-  '/assets/gallery/Jepang.jpg',
+  '/assets/hero/hero (1).jpeg',
+  '/assets/hero/hero_2.jpeg',
+  '/assets/hero/hero_3.jpeg'
 ];
 
 export default function Home() {
@@ -200,21 +198,13 @@ export default function Home() {
       <motion.section {...fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }} className="max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-2xl font-bold mb-4 text-gray-700">{t('home.quickLinks.title')}</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          {[
-            { href: '/downloads', label: t('home.quickLinks.downloadForms') },
-            { href: '/contact', label: t('home.quickLinks.contact') },
-          ].map((link, idx) => (
-            <motion.a
-              key={link.href}
-              href={link.href}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-gradient-to-r from-blue-400 to-indigo-400 text-white px-6 py-3 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
-              transition={{ type: 'spring', stiffness: 300, delay: 0.1 + idx * 0.05, ease: 'easeOut' }}
-            >
-              {link.label}
-            </motion.a>
-          ))}
+          <Link href="/programs/iup" className="text-gray-600 hover:text-blue-600 transition-colors duration-200">International Undergraduate Program</Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/programs/student-exchange" className="text-gray-600 hover:text-blue-600 transition-colors duration-200">Student Exchange</Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/programs/internships" className="text-gray-600 hover:text-blue-600 transition-colors duration-200">Internships</Link>
+          <span className="text-gray-400">|</span>
+          <Link href="/downloads" className="text-gray-600 hover:text-blue-600 transition-colors duration-200">Downloads</Link>
         </div>
       </motion.section>
     </div>
