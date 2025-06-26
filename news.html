@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - UNSIKA International Relation Office</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
+                </a>
+                <div class="hidden lg:flex items-center gap-2">
+                    <a href="about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">About Us</a>
+                    <a href="programs/iup.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Programs</a>
+                    <a href="partners.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Partners</a>
+                    <a href="news.html" class="text-blue-600 bg-blue-50 px-4 py-2 rounded-lg font-medium">News & Events</a>
+                    <a href="gallery.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Gallery</a>
+                    <a href="contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">News & Events</h1>
+                <p class="text-xl text-gray-600">Stay updated with the latest news and events from UNSIKA IRO</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="newsGrid">
+                    <!-- News items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Additional news data for the news page
+        const allNews = [
+            {
+                slug: 'unsika-welcomes-international-students-2024',
+                title: 'UNSIKA Welcomes New International Students for 2024 Academic Year',
+                desc: 'The International Relation Office (IRO) successfully welcomed 45 new international students from various countries including Japan, South Korea, Thailand, and Malaysia for the 2024 academic year.',
+                date: 'January 15, 2024',
+                image: 'public/assets/news/news 1/news 01.jpeg',
+                category: 'Student Life'
+            },
+            {
+                slug: 'partnership-agreement-with-mahidol-university',
+                title: 'New Partnership Agreement Signed with Mahidol University, Thailand',
+                desc: 'UNSIKA has signed a comprehensive partnership agreement with Mahidol University, Thailand, covering student exchange programs, joint research initiatives, and faculty collaboration.',
+                date: 'December 20, 2023',
+                image: 'public/assets/news/news 2/1.jpeg',
+                category: 'Partnerships'
+            },
+            {
+                slug: 'iup-program-expansion-announcement',
+                title: 'IUP Program Expansion: New Majors and Enhanced Curriculum',
+                desc: 'The International Undergraduate Program (IUP) is expanding with new majors in Engineering and Business Administration, along with enhanced curriculum focusing on global competencies.',
+                date: 'November 28, 2023',
+                image: 'public/assets/news/news 3/1.jpeg',
+                category: 'Programs'
+            },
+            {
+                slug: 'international-conference-2024',
+                title: 'UNSIKA Hosts International Conference on Global Education',
+                desc: 'The university successfully hosted the 2024 International Conference on Global Education, bringing together educators and researchers from over 20 countries.',
+                date: 'October 15, 2023',
+                image: 'public/assets/news/news 1/news 2.jpeg',
+                category: 'Events'
+            },
+            {
+                slug: 'student-exchange-success-stories',
+                title: 'Student Exchange Success Stories: From UNSIKA to the World',
+                desc: 'Read inspiring stories from UNSIKA students who participated in exchange programs and how it transformed their academic and personal lives.',
+                date: 'September 10, 2023',
+                image: 'public/assets/news/news 2/2.jpeg',
+                category: 'Student Life'
+            },
+            {
+                slug: 'faculty-exchange-program-launch',
+                title: 'New Faculty Exchange Program Launches with Partner Universities',
+                desc: 'UNSIKA launches a new faculty exchange program allowing lecturers to teach and conduct research at partner universities worldwide.',
+                date: 'August 25, 2023',
+                image: 'public/assets/news/news 3/2.jpeg',
+                category: 'Programs'
+            }
+        ];
+
+        // Populate news grid on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsGrid = document.getElementById('newsGrid');
+            if (newsGrid) {
+                newsGrid.innerHTML = allNews.map((item) => `
+                    <div class="bg-white rounded-3xl shadow-xl border border-blue-100 p-7 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group transform hover:scale-105">
+                        <div class="mb-4">
+                            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1 mb-3 shadow-sm">${item.category}</span>
+                            <span class="inline-block bg-gray-100 text-gray-700 text-xs font-semibold rounded-full px-3 py-1 mb-3 ml-2 shadow-sm">${item.date}</span>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2 leading-tight line-clamp-2 group-hover:text-blue-700 transition-colors duration-200">${item.title}</h2>
+                        <p class="text-gray-600 mb-4 line-clamp-3 text-base">${item.desc}</p>
+                        <a href="news/${item.slug}.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+                            Read More
+                            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html> 

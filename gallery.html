@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - UNSIKA International Relation Office</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gallery-item { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 90%; margin-top: 5%; }
+        .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
+                </a>
+                <div class="hidden lg:flex items-center gap-2">
+                    <a href="about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">About Us</a>
+                    <a href="programs/iup.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Programs</a>
+                    <a href="partners.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Partners</a>
+                    <a href="news.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">News & Events</a>
+                    <a href="gallery.html" class="text-blue-600 bg-blue-50 px-4 py-2 rounded-lg font-medium">Gallery</a>
+                    <a href="contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Photo Gallery</h1>
+                <p class="text-xl text-gray-600">Explore moments from our international programs and events</p>
+            </div>
+        </section>
+
+        <!-- Gallery Categories -->
+        <section class="py-8 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="category-btn active bg-blue-500 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300" data-category="all">All Photos</button>
+                    <button class="category-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium transition-colors duration-300" data-category="events">Events</button>
+                    <button class="category-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium transition-colors duration-300" data-category="students">Students</button>
+                    <button class="category-btn bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-medium transition-colors duration-300" data-category="campus">Campus</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="galleryGrid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for full-size images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery data
+        const galleryItems = [
+            {
+                src: 'public/assets/gallery/IMG_5155.jpg',
+                alt: 'International Students Welcome Event',
+                category: 'events',
+                title: 'International Students Welcome Event 2024'
+            },
+            {
+                src: 'public/assets/gallery/IMG_5173.jpg',
+                alt: 'Student Exchange Program',
+                category: 'students',
+                title: 'Student Exchange Program Participants'
+            },
+            {
+                src: 'public/assets/gallery/IMG20231204122013.jpg',
+                alt: 'Campus Tour for International Students',
+                category: 'campus',
+                title: 'Campus Tour for International Students'
+            },
+            {
+                src: 'public/assets/gallery/IMG20241025145140 (1).jpg',
+                alt: 'International Conference',
+                category: 'events',
+                title: 'International Conference on Global Education'
+            },
+            {
+                src: 'public/assets/gallery/Jepang.jpg',
+                alt: 'Japanese Students at UNSIKA',
+                category: 'students',
+                title: 'Japanese Students at UNSIKA'
+            },
+            {
+                src: 'public/assets/gallery/photo_2024-10-15_15-26-36 (1).jpg',
+                alt: 'Faculty Exchange Program',
+                category: 'events',
+                title: 'Faculty Exchange Program Launch'
+            },
+            {
+                src: 'public/assets/gallery/WhatsApp Image 2024-04-30 at 14.30.59.jpeg',
+                alt: 'Student Life at UNSIKA',
+                category: 'students',
+                title: 'Student Life at UNSIKA'
+            },
+            {
+                src: 'public/assets/gallery/WhatsApp Image 2024-11-22 at 11.51.59.jpeg',
+                alt: 'Campus Facilities',
+                category: 'campus',
+                title: 'Modern Campus Facilities'
+            },
+            {
+                src: 'public/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.00 (1).jpeg',
+                alt: 'International Workshop',
+                category: 'events',
+                title: 'International Workshop Series'
+            },
+            {
+                src: 'public/assets/gallery/WhatsApp Image 2024-11-22 at 11.52.01 (1).jpeg',
+                alt: 'Student Activities',
+                category: 'students',
+                title: 'Student Activities and Clubs'
+            },
+            {
+                src: 'public/assets/hero/hero (1).jpeg',
+                alt: 'UNSIKA Campus Aerial View',
+                category: 'campus',
+                title: 'UNSIKA Campus Aerial View'
+            },
+            {
+                src: 'public/assets/hero/hero_2.jpeg',
+                alt: 'International Students Group',
+                category: 'students',
+                title: 'International Students Group Photo'
+            }
+        ];
+
+        // Populate gallery
+        function populateGallery(category = 'all') {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const filteredItems = category === 'all' ? galleryItems : galleryItems.filter(item => item.category === category);
+            
+            galleryGrid.innerHTML = filteredItems.map(item => `
+                <div class="gallery-item bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer" onclick="openModal('${item.src}', '${item.title}')">
+                    <img src="${item.src}" alt="${item.alt}" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">${item.title}</h3>
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Category filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            populateGallery();
+
+            // Category button functionality
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('active', 'bg-blue-500', 'text-white');
+                        b.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active', 'bg-blue-500', 'text-white');
+                    btn.classList.remove('bg-gray-200', 'text-gray-700');
+                    
+                    // Filter gallery
+                    const category = btn.getAttribute('data-category');
+                    populateGallery(category);
+                });
+            });
+        });
+
+        // Modal functionality
+        function openModal(src, title) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+            modalImg.alt = title;
+        }
+
+        // Close modal
+        document.querySelector('.close').addEventListener('click', () => {
+            document.getElementById('imageModal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('imageModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('imageModal')) {
+                document.getElementById('imageModal').style.display = 'none';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('imageModal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> 

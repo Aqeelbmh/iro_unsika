@@ -44,15 +44,4 @@ export const news: NewsItem[] = [
       '/assets/news/news 3/2.jpeg',
     ],
   },
-  {
-    slug: 'unsika-student-exchange-uitm-malaysia-2025',
-    title: "UNSIKA Students Embark on Student Exchange Program to UiTM Puncak Alam, Malaysia",
-    date: '2025-04-28',
-    desc: "Students from UNSIKA's Faculty of Economics and Business begin a student exchange program at UiTM Puncak Alam, Malaysia, fostering global learning, cultural exchange, and international academic collaboration.",
-    content: `Student Exchange Program to UiTM Puncak Alam, Selangor, Malaysia\n\nOn April 28, 2025, students from the Faculty of Economics and Business at Universitas Singaperbangsa Karawang (UNSIKA) officially departed for Universiti Teknologi MARA (UiTM) Puncak Alam, located in Selangor, Malaysia. This departure marks a significant milestone in the ongoing student exchange program aimed at enhancing academic experiences, expanding global outlooks, and strengthening international cooperation between both institutions.\n\nThis international exchange initiative not only offers students the opportunity to study in a different academic environment but also allows them to immerse themselves in Malaysia's diverse cultural and social landscape. By directly engaging with lecturers and peers at UiTM, UNSIKA students are expected to gain valuable insights into regional economic trends, global business practices, and cross-cultural communication—skills that are crucial in today's interconnected world.\n\nThe program is part of UNSIKA's broader commitment to curriculum internationalization, enabling students to:\n\nParticipate in cross-border academic exchange\n\nCollaborate on international projects\n\nStrengthen interpersonal and intercultural skills\n\nThrough such experiences, students are not only empowered to deepen their academic knowledge but are also challenged to adapt, grow, and develop global competencies.\n\nThis initiative aligns strongly with UNSIKA's vision of producing humanist, globally competitive, and internationally-engaged graduates—individuals who can contribute meaningfully to both local and international development. Moreover, this partnership with UiTM opens the door to future opportunities such as:\n\nJoint research collaborations\n\nFaculty exchange programs\n\nExtended academic partnerships between the two universities\n\nAs these students begin their enriching journey, they carry UNSIKA's mission and spirit abroad—becoming ambassadors of culture, knowledge, and collaboration. Their experiences will not only shape their personal and professional growth but also serve as inspiration for their peers and the broader university community. Upon their return, the insights and relationships they cultivate are expected to contribute meaningfully to UNSIKA's global engagement strategy.`,
-    images: [
-      '/assets/news/news 4/1.jpeg',
-      '/assets/news/news 4/2.jpeg',
-    ],
-  },
 ]; 
