@@ -1,214 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internships - UNSIKA International Relation Office</title>
+    <title>Internships - Unsika International Relation Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../public/assets/favicon.png" sizes="32x32">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f0f4f8; /* Light gray background */
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-slate-800">
+
     <!-- Navigation -->
-    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
+    <nav id="navbar" class="w-full glass-nav sticky top-0 z-50 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="../index.html" class="flex items-center gap-3">
-                    <img src="../public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../public/assets/logo unsika (1).png" alt="Unsika Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>
                 <div class="hidden lg:flex items-center gap-2">
-                    <a href="../about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">About Us</a>
-                    <a href="iup.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">IUP Program</a>
-                    <a href="student-exchange.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
-                    <a href="internships.html" class="text-blue-600 bg-blue-50 px-4 py-2 rounded-lg font-medium">Internships</a>
-                    <a href="../partners.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Partners</a>
-                    <a href="../contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg">Contact</a>
+                    <a href="../about.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">About Us</a>
+                    <div class="relative dropdown">
+                        <button class="text-teal bg-teal/10 px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                            Programs
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <div class="dropdown-menu absolute z-10 hidden bg-white rounded-lg shadow-lg w-56 mt-2">
+                            <a href="iup.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">International Undergraduate Program</a>
+                            <a href="student-exchange.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Student Exchange</a>
+                            <a href="internships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Internships</a>
+                            <a href="scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Scholarships</a>
+                        </div>
+                    </div>
+                    <a href="../partners.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Partners</a>
+                    <a href="../news.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">News & Events</a>
+                    <a href="../gallery.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Gallery</a>
+                    <a href="../downloads.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Downloads</a>
+                </div>
+                <a href="../contact.html" class="hidden lg:inline-block bg-teal text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover transition-all duration-300">Contact Us</a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-teal focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="../about.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">About Us</a>
+            <div>
+                <button id="mobile-programs-button" class="w-full text-left flex justify-between items-center text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">
+                    <span>Programs</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div id="mobile-programs-dropdown" class="hidden pl-4 mt-2 space-y-2">
+                    <a href="iup.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">IUP</a>
+                    <a href="student-exchange.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
+                    <a href="internships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Internships</a>
+                    <a href="scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Scholarships</a>
                 </div>
             </div>
+            <a href="../partners.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Partners</a>
+            <a href="../news.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">News & Events</a>
+            <a href="../gallery.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Gallery</a>
+            <a href="../downloads.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Downloads</a>
+            <a href="../contact.html" class="block bg-teal text-white text-center font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover">Contact Us</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main>
-        <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">International Internships</h1>
-                <p class="text-xl text-gray-600">Gain practical experience through international internship opportunities</p>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative bg-slate-800 text-white py-24 md:py-32">
+            <div class="absolute inset-0">
+                <img src="../public/assets/gallery/IMG_9831.jpg" alt="Internships" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-poppins font-bold mb-4">International Internships</h1>
+                <p class="text-xl md:text-2xl text-slate-300">Gain hands-on professional experience on a global scale.</p>
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-800">About Internships</h2>
-                        <p class="text-lg text-gray-600 mb-6">
-                            Our International Internship Program provides UNSIKA students with hands-on work experience at leading companies and organizations worldwide. This program bridges the gap between academic learning and real-world professional experience.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">3-6 months professional experience</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Industry-specific training and mentorship</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Networking with professionals</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Academic credit recognition</span>
-                            </div>
+        <!-- Program Overview Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-12 items-start">
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">Launch Your Career Globally</h2>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        The Unsika International Internship Program provides students with exceptional opportunities to work in professional settings abroad. These internships are designed to bridge the gap between academic theory and real-world practice, equipping students with the skills, confidence, and experience needed to succeed in the global marketplace.
+                    </p>
+                    <p class="text-lg text-slate-600 leading-relaxed">
+                        By participating, you'll not only enhance your resume but also develop a deeper understanding of international business cultures and practices.
+                    </p>
+                </div>
+                <div class="bg-teal-50 rounded-2xl p-6">
+                    <h3 class="font-poppins font-semibold text-xl text-teal-800 mb-4">Quick Facts</h3>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start"><strong class="w-24 font-semibold">Duration:</strong> 3-6 months</li>
+                        <li class="flex items-start"><strong class="w-24 font-semibold">Eligibility:</strong> Active students</li>
+                        <li class="flex items-start"><strong class="w-24 font-semibold">Fields:</strong> Business, Tech, Engineering & more</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Highlights Section -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-poppins font-bold text-center mb-12 text-slate-900">Program Highlights</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Highlight 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="mb-4 text-teal-500">
+                             <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
+                        <h3 class="font-poppins font-semibold text-lg mb-2">Industry Placements</h3>
+                        <p class="text-slate-600 text-sm">Opportunities in technology, business, engineering, and various other fields.</p>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <img src="../public/assets/gallery/photo_2024-10-15_15-26-36 (1).jpg" alt="Internship Program" class="w-full h-64 object-cover rounded-lg mb-6">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Available Sectors</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li>• Technology & IT</li>
-                            <li>• Business & Finance</li>
-                            <li>• Engineering</li>
-                            <li>• Healthcare</li>
-                            <li>• Education</li>
-                            <li>• Non-profit Organizations</li>
-                        </ul>
+                    <!-- Highlight 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="mb-4 text-teal-500">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-4h1m-1 4h1m-1-4h1m-1 4h1"></path></svg>
+                        </div>
+                        <h3 class="font-poppins font-semibold text-lg mb-2">Multinational Companies</h3>
+                        <p class="text-slate-600 text-sm">Work with and learn from leading multinational companies and organizations.</p>
+                    </div>
+                    <!-- Highlight 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="mb-4 text-teal-500">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V4a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V8z"></path></svg>
+                        </div>
+                        <h3 class="font-poppins font-semibold text-lg mb-2">Skill Development</h3>
+                        <p class="text-slate-600 text-sm">Enhance your cross-cultural communication and professional skills.</p>
+                    </div>
+                    <!-- Highlight 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div class="mb-4 text-teal-500">
+                            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1.5a4.5 4.5 0 00-9 0V21"></path></svg>
+                        </div>
+                        <h3 class="font-poppins font-semibold text-lg mb-2">Global Network</h3>
+                        <p class="text-slate-600 text-sm">Build a diverse network of professional contacts from around the world.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Program Benefits</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Professional Skills</h3>
-                        <p class="text-gray-600">Develop practical skills and gain real-world experience in your field of study.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Global Network</h3>
-                        <p class="text-gray-600">Build professional connections and expand your international network.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Career Boost</h3>
-                        <p class="text-gray-600">Enhance your resume and increase your employability in the global job market.</p>
-                    </div>
-                </div>
+        <!-- Eligibility Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">Eligibility Requirements</h2>
+                <p class="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                    The program is open to active Unsika students who have completed at least four semesters of study and meet the specific requirements of the host company. A strong academic record and proficiency in English are typically required.
+                </p>
             </div>
         </section>
-
-        <section class="py-16">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Application Requirements</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Academic Requirements</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Minimum GPA of 3.0 (out of 4.0)
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Completed at least 2 years of study
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Good academic standing
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Relevant coursework in desired field
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-xl font-semibold mb-6 text-gray-800">Language Requirements</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                TOEFL iBT: 80+ or IELTS: 6.0+
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Strong communication skills
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Professional writing ability
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                                Cultural adaptability
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-blue-50">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-8 text-gray-800">Ready to Apply?</h2>
-                <p class="text-lg text-gray-600 mb-8">Start your professional journey with international experience</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="../downloads.html" class="bg-blue-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-                        Download Application Form
-                    </a>
-                    <a href="../contact.html" class="bg-gray-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors duration-300">
-                        Contact Us
-                    </a>
-                </div>
+        
+        <!-- CTA Section -->
+        <section class="py-20 bg-teal-500">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-3xl font-poppins font-bold mb-4">Find Your Internship</h2>
+                <p class="text-lg text-teal-100 mb-8">Browse available positions and start your application process today.</p>
+                <a href="../contact.html" class="bg-white text-teal-600 font-semibold px-8 py-3 rounded-lg hover:bg-teal-50 transition-colors duration-300">
+                    Contact Us for Opportunities
+                </a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Branding Section -->
+          <div class="lg:col-span-2 pr-8">
+            <a href="../index.html" class="flex items-center gap-3 mb-4">
+              <img src="../public/assets/logo unsika (1).png" alt="Unsika Logo" width="80" height="80" class="bg-white p-2 rounded-lg">
+              <span class="font-bold text-gray-700 text-xl">International Relation Office</span>
+            </a>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+              Fostering global connections and opportunities at Universitas Singaperbangsa Karawang.
+            </p>
+          </div>
+
+          <!-- Links Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:col-span-2">
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="../about.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">About Us</a></li>
+                <li><a href="../news.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">News & Events</a></li>
+                <li><a href="../gallery.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Gallery</a></li>
+                <li><a href="../downloads.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Downloads</a></li>
+              </ul>
             </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Programs</h4>
+              <ul class="space-y-2">
+                <li><a href="student-exchange.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Student Exchange</a></li>
+                <li><a href="internships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Internships</a></li>
+                <li><a href="scholarships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Scholarships</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Contact Us</h4>
+              <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="mailto:iro@unsika.ac.id" class="hover:text-blue-600">iro@unsika.ac.id</a></li>
+                <li><a href="http://iro.unsika.ac.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">iro.unsika.ac.id</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
+            <p class="text-gray-500 text-sm">&copy; 2025 Unsika International Relation Office. All rights reserved.</p>
+
+            <!-- Social Media -->
+            <div class="flex gap-4 items-center">
+              <a href="https://www.instagram.com/international.affairs.unsika/" aria-label="Instagram" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://www.youtube.com/@internationalaffairsunsika783" aria-label="YouTube" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="../js/main.js"></script>

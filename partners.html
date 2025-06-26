@@ -3,262 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partners - UNSIKA International Relation Office</title>
+    <title>Our Partners - Unsika International Relation Office</title>
+    <meta name="description" content="Explore Unsika's network of global partners, including universities and institutions we collaborate with for various international programs.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/assets/favicon.png" sizes="32x32">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .partner-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .partner-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1a202c;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #2d3748;
+        }
+        .text-teal { color: #4fd1c5; }
+        .bg-teal { background-color: #4fd1c5; }
+        .hover\:bg-teal-hover:hover { background-color: #38b2ac; }
+        .border-teal { border-color: #4fd1c5; }
+
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
 <body class="antialiased">
+
     <!-- Navigation -->
-    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
+    <nav id="navbar" class="w-full glass-nav sticky top-0 z-50 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>
                 <div class="hidden lg:flex items-center gap-2">
-                    <a href="about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">About Us</a>
-                    <a href="programs/iup.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Programs</a>
-                    <a href="partners.html" class="text-blue-600 bg-blue-50 px-4 py-2 rounded-lg font-medium">Partners</a>
-                    <a href="news.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">News & Events</a>
-                    <a href="gallery.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Gallery</a>
-                    <a href="contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg">Contact</a>
+                    <a href="about.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">About Us</a>
+                    <div class="relative dropdown">
+                        <button class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                            Programs
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <div class="dropdown-menu absolute z-10 hidden bg-white rounded-lg shadow-lg w-56 mt-2">
+                            <a href="programs/iup.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">International Undergraduate Program</a>
+                            <a href="programs/student-exchange.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Student Exchange</a>
+                            <a href="programs/internships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Internships</a>
+                            <a href="programs/scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Scholarships</a>
+                        </div>
+                    </div>
+                    <a href="partners.html" class="text-teal bg-teal/10 px-4 py-2 rounded-lg font-medium transition-colors">Partners</a>
+                    <a href="news.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">News & Events</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Gallery</a>
+                    <a href="downloads.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Downloads</a>
+                </div>
+                <a href="contact.html" class="hidden lg:inline-block bg-teal text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover transition-all duration-300">Contact Us</a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-teal focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="about.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">About Us</a>
+            <div>
+                <button id="mobile-programs-button" class="w-full text-left flex justify-between items-center text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">
+                    <span>Programs</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div id="mobile-programs-dropdown" class="hidden pl-4 mt-2 space-y-2">
+                    <a href="programs/iup.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">IUP</a>
+                    <a href="programs/student-exchange.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
+                    <a href="programs/internships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Internships</a>
+                    <a href="programs/scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Scholarships</a>
                 </div>
             </div>
+            <a href="partners.html" class="block bg-gray-200 text-teal px-4 py-2 rounded-lg font-medium">Partners</a>
+            <a href="news.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">News & Events</a>
+            <a href="gallery.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Gallery</a>
+            <a href="downloads.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Downloads</a>
+            <a href="contact.html" class="block bg-teal text-white text-center font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover">Contact Us</a>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main>
-        <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Our Partners</h1>
-                <p class="text-xl text-gray-600">Building global connections through strategic partnerships</p>
+    <main class="pt-20">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="mb-8 fade-in-up">
+                <h1 class="text-3xl font-bold text-gray-800 mb-4">Our Partners</h1>
+                <p class="text-lg text-gray-600">Discover our network of international partners and collaborators from around the world.</p>
             </div>
-        </section>
 
-        <!-- Partnership Overview -->
-        <section class="py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-800">Global Network</h2>
-                        <p class="text-lg text-gray-600 mb-6">
-                            UNSIKA has established strong partnerships with leading universities and institutions worldwide, creating opportunities for student exchange, joint research, and academic collaboration.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Student Exchange Programs</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Joint Research Initiatives</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">Faculty Exchange Programs</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-700">International Conferences</span>
-                            </div>
-                        </div>
+            <!-- Featured Partners -->
+            <section class="fade-in-up">
+                <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">Partners</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- UiTM -->
+                    <div class="bg-white/50 backdrop-blur-lg border border-gray-200/80 rounded-xl p-6 text-center flex flex-col items-center justify-center h-52 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="public/assets/Partner/UiTM.png" alt="UiTM Logo" class="h-24 max-w-full object-contain mb-4">
+                        <h4 class="font-bold text-gray-800">Universiti Teknologi Mara</h4>
+                        <p class="text-sm text-gray-500">Malaysia</p>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Partnership Statistics</h3>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                                <div class="text-gray-600">Partner Universities</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-blue-600 mb-2">15</div>
-                                <div class="text-gray-600">Countries</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-blue-600 mb-2">500+</div>
-                                <div class="text-gray-600">Students Exchanged</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                                <div class="text-gray-600">Research Projects</div>
-                            </div>
+                    <!-- Mahidol -->
+                    <div class="bg-white/50 backdrop-blur-lg border border-gray-200/80 rounded-xl p-6 text-center flex flex-col items-center justify-center h-52 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="public/assets/Partner/Mahidol_U.png" alt="Mahidol University Logo" class="h-24 max-w-full object-contain mb-4">
+                        <h4 class="font-bold text-gray-800">Mahidol University</h4>
+                        <p class="text-sm text-gray-500">Kanchanaburi Campus, Thailand</p>
+                    </div>
+                    <!-- Shanghai -->
+                    <div class="bg-white/50 backdrop-blur-lg border border-gray-200/80 rounded-xl p-6 text-center flex flex-col items-center justify-center h-52 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <img src="public/assets/Partner/Shanghai_University_of_Electric_Power_logo.png" alt="Shanghai University of Electrical Power Logo" class="h-24 max-w-full object-contain mb-4">
+                        <h4 class="font-bold text-gray-800">Shanghai University of Electrical Power</h4>
+                        <p class="text-sm text-gray-500">China</p>
+                    </div>
+                    <!-- Turan -->
+                    <div class="bg-white/50 backdrop-blur-lg border border-gray-200/80 rounded-xl p-6 text-center flex flex-col items-center justify-center h-52 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="h-24 flex items-center justify-center mb-4">
+                            <span class="text-3xl text-gray-400">🏛️</span>
                         </div>
+                        <h4 class="font-bold text-gray-800">Turan International University</h4>
+                        <p class="text-sm text-gray-500">Uzbekistan</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Partner Universities -->
-        <section class="py-16 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Partner Universities</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4">
-                            <img src="public/assets/Partner/Mahidol_U.png" alt="Mahidol University" class="max-h-20 max-w-full object-contain">
+            <div class="space-y-12">
+                <!-- Partner Categories -->
+                <section class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8 fade-in-up">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Partner Categories</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">🎓</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Academic Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Universities and educational institutions for student exchange and research collaboration</p>
+                            <span class="text-sky-600 font-medium text-sm">25+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Mahidol University</h3>
-                        <p class="text-gray-600 mb-3">Thailand</p>
-                        <p class="text-sm text-gray-500">Comprehensive partnership covering student exchange, joint research, and faculty collaboration.</p>
-                    </div>
-                    
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4">
-                            <img src="public/assets/Partner/Shanghai_University_of_Electric_Power_logo.png" alt="Shanghai University of Electric Power" class="max-h-20 max-w-full object-contain">
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">🔬</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Research Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Research institutions and laboratories for joint research projects</p>
+                            <span class="text-sky-600 font-medium text-sm">15+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Shanghai University of Electric Power</h3>
-                        <p class="text-gray-600 mb-3">China</p>
-                        <p class="text-sm text-gray-500">Engineering and technology collaboration with focus on sustainable energy research.</p>
-                    </div>
-                    
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4">
-                            <img src="public/assets/Partner/UiTM.png" alt="Universiti Teknologi MARA" class="max-h-20 max-w-full object-contain">
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">🏢</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Industry Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Companies and organizations for internships and professional development</p>
+                            <span class="text-sky-600 font-medium text-sm">20+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Universiti Teknologi MARA</h3>
-                        <p class="text-gray-600 mb-3">Malaysia</p>
-                        <p class="text-sm text-gray-500">Student exchange programs and joint academic initiatives in business and technology.</p>
-                    </div>
-                    
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4 bg-gray-100 rounded-lg">
-                            <div class="text-gray-500 text-center">
-                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                                </svg>
-                                <span class="text-sm">University Logo</span>
-                            </div>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">🏛️</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Government Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Government agencies and ministries for policy research and capacity building</p>
+                            <span class="text-sky-600 font-medium text-sm">10+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Tokyo University of Technology</h3>
-                        <p class="text-gray-600 mb-3">Japan</p>
-                        <p class="text-sm text-gray-500">Advanced technology and innovation partnership with focus on robotics and AI.</p>
-                    </div>
-                    
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4 bg-gray-100 rounded-lg">
-                            <div class="text-gray-500 text-center">
-                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                                </svg>
-                                <span class="text-sm">University Logo</span>
-                            </div>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">🌍</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Cultural Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Cultural organizations for cultural exchange and language programs</p>
+                            <span class="text-sky-600 font-medium text-sm">8+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Seoul National University</h3>
-                        <p class="text-gray-600 mb-3">South Korea</p>
-                        <p class="text-sm text-gray-500">Comprehensive academic partnership in various fields including medicine and engineering.</p>
-                    </div>
-                    
-                    <div class="partner-card bg-white rounded-2xl shadow-lg p-6">
-                        <div class="flex items-center justify-center h-32 mb-4 bg-gray-100 rounded-lg">
-                            <div class="text-gray-500 text-center">
-                                <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                                </svg>
-                                <span class="text-sm">University Logo</span>
-                            </div>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-3xl mb-4">💻</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Technology Partners</h3>
+                            <p class="text-gray-600 text-sm mb-3">Tech companies for innovation and digital transformation initiatives</p>
+                            <span class="text-sky-600 font-medium text-sm">12+ partners</span>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">National University of Singapore</h3>
-                        <p class="text-gray-600 mb-3">Singapore</p>
-                        <p class="text-sm text-gray-500">Research collaboration and student exchange programs in business and technology.</p>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Partnership Benefits -->
-        <section class="py-16">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Benefits of Partnership</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                <!-- Regional Partners -->
+                <section class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8 fade-in-up">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Partners by Region</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-gray-800">Asia-Pacific</h3>
+                                <span class="bg-sky-100 text-sky-700 px-2 py-1 rounded text-xs font-medium">25 partners</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-gray-600 text-sm">• Japan</li>
+                                <li class="text-gray-600 text-sm">• South Korea</li>
+                                <li class="text-gray-600 text-sm">• Singapore</li>
+                                <li class="text-gray-600 text-sm">• Thailand</li>
+                                <li class="text-gray-600 text-sm">• Malaysia</li>
+                            </ul>
                         </div>
-                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Global Exposure</h3>
-                        <p class="text-gray-600">Students gain international experience and cultural understanding.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-gray-800">Europe</h3>
+                                <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-medium">15 partners</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-gray-600 text-sm">• Germany</li>
+                                <li class="text-gray-600 text-sm">• Netherlands</li>
+                                <li class="text-gray-600 text-sm">• Sweden</li>
+                                <li class="text-gray-600 text-sm">• France</li>
+                                <li class="text-gray-600 text-sm">• Italy</li>
+                            </ul>
                         </div>
-                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Quality Education</h3>
-                        <p class="text-gray-600">Access to world-class academic resources and expertise.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-gray-800">Americas</h3>
+                                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium">8 partners</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-gray-600 text-sm">• USA</li>
+                                <li class="text-gray-600 text-sm">• Canada</li>
+                                <li class="text-gray-600 text-sm">• Brazil</li>
+                                <li class="text-gray-600 text-sm">• Mexico</li>
+                            </ul>
                         </div>
-                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Research Collaboration</h3>
-                        <p class="text-gray-600">Joint research projects and academic publications.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-                            </svg>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-bold text-gray-800">Middle East</h3>
+                                <span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-medium">5 partners</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-gray-600 text-sm">• UAE</li>
+                                <li class="text-gray-600 text-sm">• Qatar</li>
+                                <li class="text-gray-600 text-sm">• Saudi Arabia</li>
+                            </ul>
                         </div>
-                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Career Opportunities</h3>
-                        <p class="text-gray-600">Enhanced career prospects through international networks.</p>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
 
-        <!-- Become a Partner -->
-        <section class="py-16 bg-blue-50">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-8 text-gray-800">Interested in Partnership?</h2>
-                <p class="text-lg text-gray-600 mb-8">Join our global network and create opportunities for collaboration and growth</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contact.html" class="bg-blue-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">
-                        Contact Us
-                    </a>
-                    <a href="downloads.html" class="bg-gray-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors duration-300">
-                        Partnership Brochure
-                    </a>
-                </div>
+                <!-- Partnership Benefits -->
+                <section class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8 fade-in-up">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Partnership Benefits</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="font-semibold text-sky-700 mb-3">For Students</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>International study opportunities</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Cultural exchange experiences</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Enhanced career prospects</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Global networking</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Language development</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sky-700 mb-3">For Faculty</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Research collaboration</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Academic exchange programs</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Joint publications</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Professional development</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>International recognition</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sky-700 mb-3">For Institutions</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Enhanced reputation</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Research funding opportunities</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Student diversity</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>International accreditation</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Global competitiveness</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sky-700 mb-3">For Industry</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Skilled workforce development</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Innovation collaboration</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Technology transfer</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Market expansion</li>
+                                <li class="flex items-center gap-2 text-gray-600"><span class="text-sky-500">•</span>Research partnerships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Partnership Opportunities -->
+                <section class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-8 fade-in-up">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Partnership Opportunities</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">🤝</div>
+                            <h3 class="font-bold text-gray-800 mb-2">New Partnership</h3>
+                            <p class="text-gray-600 text-sm mb-4">Interested in establishing a partnership with Unsika?</p>
+                            <a href="contact.html" class="text-sky-600 hover:text-sky-700 text-sm font-medium">Contact us for collaboration &rarr;</a>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">📚</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Program Development</h3>
+                            <p class="text-gray-600 text-sm mb-4">Collaborate on developing new academic programs</p>
+                            <a href="programs/partnerships.html" class="text-sky-600 hover:text-sky-700 text-sm font-medium">Explore program opportunities &rarr;</a>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">🔬</div>
+                            <h3 class="font-bold text-gray-800 mb-2">Research Collaboration</h3>
+                            <p class="text-gray-600 text-sm mb-4">Joint research projects and funding opportunities</p>
+                            <a href="contact.html" class="text-sky-600 hover:text-sky-700 text-sm font-medium">Discuss research initiatives &rarr;</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="bg-gradient-to-r from-sky-500 to-indigo-600 rounded-2xl shadow-xl p-8 text-center text-white fade-in-up">
+                    <h2 class="text-2xl font-bold mb-4">Become Our Partner</h2>
+                    <p class="text-lg mb-6 opacity-90">Join our global network to foster academic excellence and innovation.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="bg-white text-sky-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors duration-200">Contact Us</a>
+                        <a href="programs/partnerships.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-sky-600 transition-colors duration-200">Learn More</a>
+                    </div>
+                </section>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Branding Section -->
+          <div class="lg:col-span-2 pr-8">
+            <a href="index.html" class="flex items-center gap-3 mb-4">
+              <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" width="80" height="80" class="bg-white p-2 rounded-lg">
+              <span class="font-bold text-gray-700 text-xl">International Relation Office</span>
+            </a>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+              Fostering global connections and opportunities at Universitas Singaperbangsa Karawang.
+            </p>
+          </div>
+
+          <!-- Links Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:col-span-2">
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="about.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">About Us</a></li>
+                <li><a href="news.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">News & Events</a></li>
+                <li><a href="gallery.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Gallery</a></li>
+                <li><a href="downloads.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Downloads</a></li>
+              </ul>
             </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Programs</h4>
+              <ul class="space-y-2">
+                <li><a href="programs/student-exchange.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Student Exchange</a></li>
+                <li><a href="programs/internships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Internships</a></li>
+                <li><a href="programs/scholarships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Scholarships</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Contact Us</h4>
+              <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="mailto:iro@unsika.ac.id" class="hover:text-blue-600">iro@unsika.ac.id</a></li>
+                <li><a href="http://iro.unsika.ac.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">iro.unsika.ac.id</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
+            <p class="text-gray-500 text-sm">&copy; 2025 Unsika International Relation Office. All rights reserved.</p>
+
+            <!-- Social Media -->
+            <div class="flex gap-4 items-center">
+              <a href="https://www.instagram.com/international.affairs.unsika/" aria-label="Instagram" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://www.youtube.com/@internationalaffairsunsika783" aria-label="YouTube" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <script src="js/main.js" defer></script>
+
 </body>
 </html> 

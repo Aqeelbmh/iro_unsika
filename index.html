@@ -3,359 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNSIKA International Relation Office | Universitas Singaperbangsa Karawang</title>
-    <meta name="description" content="Official website of the International Relation Office, Universitas Singaperbangsa Karawang (UNSIKA). Programs, news, partnerships, and contact information.">
+    <title>Unsika International Relation Office | Universitas Singaperbangsa Karawang</title>
+    <meta name="description" content="Official website of the International Relation Office, Universitas Singaperbangsa Karawang (Unsika). Programs, news, partnerships, and contact information.">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="public/assets/favicon.png" sizes="32x32">
+
     <style>
-        :root {
-            --font-geist-sans: 'Inter', sans-serif;
-            --font-geist-mono: 'Roboto Mono', monospace;
-        }
-        
         body {
-            font-family: var(--font-geist-sans);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #1a202c;
         }
-        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: #2d3748;
+        }
+        .text-teal { color: #4fd1c5; }
+        .bg-teal { background-color: #4fd1c5; }
+        .hover\:bg-teal-hover:hover { background-color: #38b2ac; }
+        .border-teal { border-color: #4fd1c5; }
+
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+        }
         .fade-in-up {
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .fade-in {
-            opacity: 0;
-            transition: opacity 0.7s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-        }
-        
-        .hero-slide {
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-        
-        .hero-slide.active {
-            opacity: 1;
-        }
-        
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-        
-        .dropdown-menu.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .mobile-menu.show {
-            max-height: 500px;
-        }
-        
-        .hamburger-line {
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
     </style>
 </head>
 <body class="antialiased">
+
     <!-- Navigation -->
-    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+    <nav id="navbar" class="w-full glass-nav sticky top-0 z-50 transition-shadow duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo/Brand -->
                 <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="transform transition-transform duration-300 group-hover:scale-105">
-                        <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
-                    </div>
+                    <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>
-
-                <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center gap-2">
-                    <div>
-                        <a href="about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200" data-translate="nav.aboutUs">About Us</a>
-                    </div>
-                    <div class="relative group">
-                        <button class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center gap-1" data-translate="nav.programs">
+                    <a href="about.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">About Us</a>
+                    <div class="relative dropdown">
+                        <button class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
                             Programs
-                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                         </button>
-                        <div class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top z-20">
-                            <div class="py-2">
-                                <a href="programs/iup.html" class="block px-4 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200 font-medium">IUP</a>
-                                <div class="border-t border-gray-100 my-1"></div>
-                                <a href="programs/student-exchange.html" class="block px-4 py-2 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200" data-translate="nav.studentExchange">Student Exchange</a>
-                                <a href="programs/internships.html" class="block px-4 py-2 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200" data-translate="nav.internships">Internships</a>
-                                <a href="programs/short-courses.html" class="block px-4 py-2 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200" data-translate="nav.shortCourses">Short Courses</a>
-                                <a href="programs/scholarships.html" class="block px-4 py-2 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200" data-translate="nav.scholarships">Scholarships</a>
-                                <a href="programs/partnerships.html" class="block px-4 py-2 text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200" data-translate="nav.partnerships">Partnerships</a>
-                            </div>
+                        <div class="dropdown-menu absolute z-10 hidden bg-white rounded-lg shadow-lg w-56 mt-2">
+                            <a href="programs/iup.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">International Undergraduate Program</a>
+                            <a href="programs/student-exchange.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Student Exchange</a>
+                            <a href="programs/internships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Internships</a>
+                            <a href="programs/scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Scholarships</a>
                         </div>
                     </div>
-                    <div>
-                        <a href="partners.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200" data-translate="nav.partners">Partners</a>
-                    </div>
-                    <div>
-                        <a href="news.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200" data-translate="nav.newsEvents">News & Events</a>
-                    </div>
-                    <div>
-                        <a href="gallery.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200" data-translate="nav.gallery">Gallery</a>
-                    </div>
-                    <div>
-                        <a href="downloads.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200" data-translate="nav.downloads">Downloads</a>
-                    </div>
-                    <!-- Language Switcher -->
-                    <select id="languageSelector" class="mx-2 border-gray-200 rounded-lg px-3 py-2 text-sm bg-gray-50 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors duration-200">
-                        <option value="en">EN</option>
-                        <option value="id">ID</option>
-                    </select>
-                    <!-- Contact CTA -->
-                    <div class="transform transition-transform duration-300 hover:scale-105 active:scale-95">
-                        <a href="contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-blue-600 transition-all duration-300" data-translate="nav.contact">Contact</a>
-                    </div>
+                    <a href="partners.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Partners</a>
+                    <a href="news.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">News & Events</a>
+                    <a href="gallery.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Gallery</a>
+                    <a href="downloads.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Downloads</a>
                 </div>
-
-                <!-- Mobile Hamburger -->
-                <button id="mobileMenuBtn" class="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 hamburger">
-                    <span class="w-6 h-0.5 bg-gray-500 transition-all duration-300 hamburger-line"></span>
-                    <span class="w-6 h-0.5 bg-gray-500 transition-all duration-300 hamburger-line"></span>
-                    <span class="w-6 h-0.5 bg-gray-500 transition-all duration-300 hamburger-line"></span>
+                <a href="contact.html" class="hidden lg:inline-block bg-teal text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover transition-all duration-300">Contact Us</a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-teal focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="lg:hidden border-t border-white/30 bg-white/20 backdrop-blur-lg mobile-menu">
-                <div class="px-4 py-6 space-y-4">
-                    <a href="about.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.aboutUs">About Us</a>
-                    <a href="partners.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.partners">Partners</a>
-                    <a href="news.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.newsEvents">News & Events</a>
-                    <a href="gallery.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.gallery">Gallery</a>
-                    <a href="downloads.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.downloads">Downloads</a>
-                    <a href="contact.html" class="block py-3 text-gray-600 hover:text-blue-500 font-medium transition-colors duration-200" data-translate="nav.contact">Contact</a>
-                    
-                    <div class="space-y-2">
-                        <span class="block text-sm font-semibold text-gray-400 uppercase tracking-wide" data-translate="nav.programs">Programs</span>
-                        <div class="pl-4 space-y-2">
-                            <a href="programs/iup.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200">IUP</a>
-                            <a href="programs/student-exchange.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200" data-translate="nav.studentExchange">Student Exchange</a>
-                            <a href="programs/internships.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200" data-translate="nav.internships">Internships</a>
-                            <a href="programs/short-courses.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200" data-translate="nav.shortCourses">Short Courses</a>
-                            <a href="programs/scholarships.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200" data-translate="nav.scholarships">Scholarships</a>
-                            <a href="programs/partnerships.html" class="block py-2 text-gray-500 hover:text-blue-500 transition-colors duration-200" data-translate="nav.partnerships">Partnerships</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Language Switcher Mobile -->
-                    <select id="languageSelectorMobile" class="w-full mt-4 border border-gray-200 rounded-lg px-3 py-2 text-sm bg-white/80 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                        <option value="en">EN</option>
-                        <option value="id">ID</option>
-                    </select>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="about.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">About Us</a>
+            <div>
+                <button id="mobile-programs-button" class="w-full text-left flex justify-between items-center text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">
+                    <span>Programs</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div id="mobile-programs-dropdown" class="hidden pl-4 mt-2 space-y-2">
+                    <a href="programs/iup.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">IUP</a>
+                    <a href="programs/student-exchange.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
+                    <a href="programs/internships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Internships</a>
+                    <a href="programs/scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Scholarships</a>
                 </div>
             </div>
+            <a href="partners.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Partners</a>
+            <a href="news.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">News & Events</a>
+            <a href="gallery.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Gallery</a>
+            <a href="downloads.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Downloads</a>
+            <a href="contact.html" class="block bg-teal text-white text-center font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover">Contact Us</a>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Banner -->
-        <section class="relative text-gray-700 py-20 flex flex-col items-center justify-center text-center overflow-hidden min-h-[60vh] sm:min-h-[78vh] fade-in-up">
-            <div id="heroSlides" class="absolute inset-0 z-0">
-                <div class="hero-slide active absolute inset-0">
-                    <img src="public/assets/hero/hero (1).jpeg" alt="" class="w-full h-full object-cover" style="filter: blur(8px); transform: scale(1.1);">
-                    <div class="absolute inset-0 bg-black/50 z-10"></div>
-                    <img src="public/assets/hero/hero (1).jpeg" alt="UNSIKA Campus Background" class="absolute inset-0 w-full h-full object-contain z-20">
-                </div>
-                <div class="hero-slide absolute inset-0">
-                    <img src="public/assets/hero/hero_2.jpeg" alt="" class="w-full h-full object-cover" style="filter: blur(8px); transform: scale(1.1);">
-                    <div class="absolute inset-0 bg-black/50 z-10"></div>
-                    <img src="public/assets/hero/hero_2.jpeg" alt="UNSIKA Campus Background" class="absolute inset-0 w-full h-full object-contain z-20">
-                </div>
-                <div class="hero-slide absolute inset-0">
-                    <img src="public/assets/hero/hero_3.jpeg" alt="" class="w-full h-full object-cover" style="filter: blur(8px); transform: scale(1.1);">
-                    <div class="absolute inset-0 bg-black/50 z-10"></div>
-                    <img src="public/assets/hero/hero_3.jpeg" alt="UNSIKA Campus Background" class="absolute inset-0 w-full h-full object-contain z-20">
-                </div>
-            </div>
-        </section>
+    <!-- Hero Section with Rotating Background -->
+    <section id="home-hero" class="relative h-72 md:h-[480px] flex items-center justify-center mb-12 rounded-2xl overflow-hidden shadow-lg">
+      <div id="home-hero-bg" class="absolute inset-0 w-full h-full bg-center bg-cover transition-all duration-1000 scale-110"></div>
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 text-center px-4 flex flex-col items-center justify-center w-full">
+        <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" width="160" height="160" class="object-contain mb-4 drop-shadow-lg mx-auto bg-white/80 rounded-2xl p-2">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow mb-4">Welcome to Unsika IRO</h1>
+        <p class="text-lg md:text-xl text-white/90 font-medium drop-shadow mb-2">Empowering global engagement, partnerships, and opportunities for students and scholars at Universitas Singaperbangsa Karawang.</p>
+      </div>
+    </section>
+    <!-- End Hero Section -->
 
-        <!-- Welcome Section -->
-        <section class="max-w-4xl mx-auto px-4 text-center -mt-36 relative z-20 fade-in-up">
-            <!-- UNSIKA logo & Title -->
-            <div class="mb-6 flex flex-col items-center bg-white/30 backdrop-blur-lg border border-white/40 p-8 rounded-3xl shadow-2xl fade-in">
-                <div class="transform transition-transform duration-300 hover:scale-105">
-                    <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="160" height="160" class="object-contain mb-4 drop-shadow-lg">
-                </div>
-                <span class="text-2xl font-semibold text-gray-700 tracking-wide fade-in">International Relation Office</span>
-            </div>
-            
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-700 mt-8">Welcome to UNSIKA IRO</h1>
-            <p class="text-lg md:text-xl text-gray-500">Empowering global engagement, partnerships, and opportunities for students and scholars at Universitas Singaperbangsa Karawang.</p>
-        </section>
+    <!-- Welcome Section -->
+    <section class="max-w-4xl mx-auto px-4 text-center -mt-36 relative z-20 fade-in-up">
+      <div class="mb-6 flex flex-col items-center bg-white/30 backdrop-blur-lg border border-white/40 p-8 rounded-3xl shadow-2xl">
+        <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" width="160" height="160" class="object-contain mb-4 drop-shadow-lg">
+        <span class="text-2xl font-semibold text-gray-700 tracking-wide">International Relation Office</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-700 mt-8">Welcome to Unsika IRO</h1>
+      <p class="text-lg md:text-xl text-gray-500">Empowering global engagement, partnerships, and opportunities for students and scholars at Universitas Singaperbangsa Karawang.</p>
+    </section>
 
-        <!-- About UNSIKA IRO -->
-        <section class="max-w-4xl mx-auto px-4 text-center fade-in-up">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">About UNSIKA IRO</h2>
-            <p class="text-lg text-gray-500" data-translate="home.about.description">The International Office at UNSIKA facilitates international programs, partnerships, and student mobility, supporting the university's vision to be a globally recognized institution.</p>
-        </section>
+    <!-- About Unsika IRO -->
+    <section class="max-w-4xl mx-auto px-4 text-center fade-in-up">
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">About Unsika IRO</h2>
+      <p class="text-lg text-gray-500">The International Relation Office at Unsika facilitates international programs, partnerships, and student mobility, supporting the university's vision to be a globally recognized institution.</p>
+    </section>
 
-        <!-- Vision and Mission -->
-        <section class="max-w-4xl mx-auto px-4 text-center fade-in-up">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">Vision</h2>
-            <p class="mb-8 text-lg text-gray-500">
-                To become a dynamic and globally connected gateway that advances Universitas Singaperbangsa Karawang's role as a center of excellence in education, research, and community engagement through international collaboration and intercultural understanding.
-            </p>
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">Mission</h2>
-            <ul class="text-lg text-gray-500 list-disc list-inside space-y-3 text-left max-w-2xl mx-auto mb-8">
-                <li>To develop and strengthen strategic international partnerships that support academic and research excellence.</li>
-                <li>To facilitate international mobility programs for students, lecturers, and researchers that foster global competencies and cross-cultural experiences.</li>
-                <li>To provide professional, accessible, and comprehensive services for international students, scholars, and partners.</li>
-                <li>To promote UNSIKA's global visibility and active participation in international academic networks and forums.</li>
-                <li>To ensure that all international programs reflect the values of integrity, innovation, inclusiveness, and contribution to sustainable development.</li>
-            </ul>
-        </section>
+    <!-- Vision and Mission -->
+    <section class="max-w-4xl mx-auto px-4 text-center fade-in-up">
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">Vision</h2>
+      <p class="mb-8 text-lg text-gray-500">
+        To become a dynamic and globally connected gateway that advances Universitas Singaperbangsa Karawang's role as a center of excellence in education, research, and community engagement through international collaboration and intercultural understanding.
+      </p>
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">Mission</h2>
+      <ul class="text-lg text-gray-500 list-disc list-inside space-y-3 text-left max-w-2xl mx-auto mb-8">
+        <li>To develop and strengthen strategic international partnerships that support academic and research excellence.</li>
+        <li>To facilitate international mobility programs for students, lecturers, and researchers that foster global competencies and cross-cultural experiences.</li>
+        <li>To provide professional, accessible, and comprehensive services for international students, scholars, and partners.</li>
+        <li>To promote Unsika's global visibility and active participation in international academic networks and forums.</li>
+        <li>To ensure that all international programs reflect the values of integrity, innovation, inclusiveness, and contribution to sustainable development.</li>
+      </ul>
+    </section>
 
-        <!-- IUP Experience Highlight -->
-        <section class="max-w-3xl mx-auto px-4 text-center bg-blue-50/60 rounded-xl shadow-sm p-8 border border-blue-100/50 mb-8 fade-in-up">
-            <h3 class="text-xl font-semibold mb-2 text-blue-700">Why Choose the International Undergraduate Program (IUP)?</h3>
-            <p class="text-lg text-blue-900">
-                The International Undergraduate Program (IUP) is not only about studying in college, but also about building cross-cultural experiences, strengthening global networks, and opening foreign students' insights into Indonesia from within.
-            </p>
-        </section>
+    <!-- IUP Experience Highlight -->
+    <section class="max-w-3xl mx-auto px-4 text-center bg-blue-50/60 rounded-xl shadow-sm p-8 border border-blue-100/50 mb-8 fade-in-up">
+      <h3 class="text-xl font-semibold mb-2 text-blue-700">Why Choose the International Undergraduate Program (IUP)?</h3>
+      <p class="text-lg text-blue-900">
+        The International Undergraduate Program (IUP) is not only about studying in college, but also about building cross-cultural experiences, strengthening global networks, and opening foreign students' insights into Indonesia from within.
+      </p>
+    </section>
 
-        <!-- Featured Programs -->
-        <section class="max-w-6xl mx-auto px-4 fade-in-up">
-            <h2 class="text-2xl font-bold mb-8 text-center text-gray-700" data-translate="home.featuredPrograms.title">Featured Programs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <span class="text-blue-600 font-bold text-lg mb-2" data-translate="home.featuredPrograms.studentExchange.title">Student Exchange</span>
-                    <p class="text-gray-500 text-center" data-translate="home.featuredPrograms.studentExchange.description">Experience studying abroad with our partner universities worldwide.</p>
-                </div>
-                
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-                        </svg>
-                    </div>
-                    <span class="text-blue-600 font-bold text-lg mb-2" data-translate="home.featuredPrograms.internships.title">Internships</span>
-                    <p class="text-gray-500 text-center" data-translate="home.featuredPrograms.internships.description">Gain practical experience through international internship opportunities.</p>
-                </div>
-                
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                        </svg>
-                    </div>
-                    <span class="text-blue-600 font-bold text-lg mb-2" data-translate="home.featuredPrograms.scholarships.title">Scholarships</span>
-                    <p class="text-gray-500 text-center" data-translate="home.featuredPrograms.scholarships.description">Access various scholarship opportunities for international education.</p>
-                </div>
-            </div>
-        </section>
+    <!-- Featured Programs -->
+    <section class="max-w-6xl mx-auto px-4 fade-in-up">
+      <h2 class="text-2xl font-bold mb-8 text-center text-gray-700">Featured Programs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <span class="text-blue-600 font-bold text-lg mb-2">Student Exchange</span>
+          <p class="text-gray-500 text-center">Study abroad at one of our partner universities.</p>
+        </div>
+        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6" />
+            </svg>
+          </div>
+          <span class="text-blue-600 font-bold text-lg mb-2">Internships</span>
+          <p class="text-gray-500 text-center">Gain professional experience with international internships.</p>
+        </div>
+        <div class="bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl shadow-xl p-6 flex flex-col items-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+          <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+          </div>
+          <span class="text-blue-600 font-bold text-lg mb-2">Scholarships</span>
+          <p class="text-gray-500 text-center">Financial support for international and local students.</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- Latest News & Events -->
-        <section class="max-w-6xl mx-auto px-4 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl py-12 mb-12 fade-in-up">
-            <h2 class="text-3xl font-bold mb-10 text-center text-blue-800 drop-shadow-lg" data-translate="home.newsEvents.title">Latest News & Events</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12" id="newsGrid">
-                <!-- News items will be populated by JavaScript -->
-            </div>
-        </section>
-    </main>
+    <!-- Latest News & Events -->
+    <section class="max-w-6xl mx-auto px-4 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl py-12 mb-12 fade-in-up">
+      <h2 class="text-3xl font-bold mb-10 text-center text-blue-800 drop-shadow-lg">Latest News & Events</h2>
+      <div id="home-news-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- News cards will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="max-w-4xl mx-auto px-4 text-center fade-in-up">
+      <h2 class="text-2xl font-bold mb-4 text-gray-700">Quick Links</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="programs/iup.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">International Undergraduate Program</a>
+        <span class="text-gray-400">|</span>
+        <a href="programs/student-exchange.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Student Exchange</a>
+        <span class="text-gray-400">|</span>
+        <a href="programs/internships.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Internships</a>
+        <span class="text-gray-400">|</span>
+        <a href="downloads.html" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Downloads</a>
+      </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="60" height="60" class="object-contain">
-                        <div>
-                            <h3 class="text-xl font-bold">UNSIKA IRO</h3>
-                            <p class="text-gray-400" data-translate="footer.description">International Relation Office</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        Empowering global engagement, partnerships, and opportunities for students and scholars at Universitas Singaperbangsa Karawang.
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4" data-translate="footer.quickLinks">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors duration-200" data-translate="nav.aboutUs">About Us</a></li>
-                        <li><a href="programs/iup.html" class="text-gray-400 hover:text-white transition-colors duration-200">IUP Program</a></li>
-                        <li><a href="partners.html" class="text-gray-400 hover:text-white transition-colors duration-200" data-translate="nav.partners">Partners</a></li>
-                        <li><a href="news.html" class="text-gray-400 hover:text-white transition-colors duration-200" data-translate="nav.newsEvents">News & Events</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors duration-200" data-translate="nav.contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4" data-translate="footer.contactInfo">Contact Info</h4>
-                    <div class="space-y-2 text-gray-400">
-                        <p>Universitas Singaperbangsa Karawang</p>
-                        <p>Jl. HS. Ronggowaluyo, Karawang</p>
-                        <p>West Java, Indonesia</p>
-                        <p class="mt-4">
-                            <a href="mailto:iro@unsika.ac.id" class="hover:text-white transition-colors duration-200">iro@unsika.ac.id</a>
-                        </p>
-                    </div>
-                </div>
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Branding Section -->
+          <div class="lg:col-span-2 pr-8">
+            <a href="index.html" class="flex items-center gap-3 mb-4">
+              <img src="public/assets/logo unsika (1).png" alt="Unsika Logo" width="80" height="80" class="bg-white p-2 rounded-lg">
+              <span class="font-bold text-gray-700 text-xl">International Relation Office</span>
+            </a>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+              Fostering global connections and opportunities at Universitas Singaperbangsa Karawang.
+            </p>
+          </div>
+
+          <!-- Links Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:col-span-2">
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="about.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">About Us</a></li>
+                <li><a href="news.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">News & Events</a></li>
+                <li><a href="gallery.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Gallery</a></li>
+                <li><a href="downloads.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Downloads</a></li>
+              </ul>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400" data-translate="footer.copyright">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Programs</h4>
+              <ul class="space-y-2">
+                <li><a href="programs/student-exchange.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Student Exchange</a></li>
+                <li><a href="programs/internships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Internships</a></li>
+                <li><a href="programs/scholarships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Scholarships</a></li>
+              </ul>
             </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Contact Us</h4>
+              <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="mailto:iro@unsika.ac.id" class="hover:text-blue-600">iro@unsika.ac.id</a></li>
+                <li><a href="http://iro.unsika.ac.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">iro.unsika.ac.id</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
+            <p class="text-gray-500 text-sm">&copy; 2025 Unsika International Relation Office. All rights reserved.</p>
+
+            <!-- Social Media -->
+            <div class="flex gap-4 items-center">
+              <a href="https://www.instagram.com/international.affairs.unsika/" aria-label="Instagram" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://www.youtube.com/@internationalaffairsunsika783" aria-label="YouTube" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/translations.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/news-data.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Rotating home hero background images
+      const images = [
+        'public/assets/hero/hero (1).jpeg',
+        'public/assets/hero/hero_2.jpeg',
+        'public/assets/hero/hero_3.jpeg'
+      ];
+      let idx = 0;
+      const heroBg = document.getElementById('home-hero-bg');
+      function setHeroBg() {
+        heroBg.style.backgroundImage = `url('${images[idx]}')`;
+      }
+      setHeroBg();
+      setInterval(() => {
+        idx = (idx + 1) % images.length;
+        setHeroBg();
+      }, 5000);
+
+      // Render latest 3 news on homepage
+      if (typeof newsData !== 'undefined') {
+        const homeNewsGrid = document.getElementById('home-news-grid');
+        homeNewsGrid.innerHTML = '';
+        newsData.slice(0, 3).forEach(news => {
+          const card = document.createElement('div');
+          card.className = 'bg-white rounded-3xl shadow-xl border border-blue-100 p-7 flex flex-col justify-between hover:shadow-2xl transition-all duration-300 group';
+          card.innerHTML = `
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-semibold rounded-full px-3 py-1 mb-3 self-start shadow-sm">${news.date}</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2 leading-tight line-clamp-2 group-hover:text-blue-700 transition-colors duration-200">${news.title}</h2>
+            <p class="text-gray-600 mb-4 line-clamp-3 text-base">${news.desc}</p>
+            <div class="mt-auto">
+              <a href="${news.link}" class="inline-block text-white bg-blue-700 hover:bg-blue-800 font-semibold px-5 py-2 rounded-full shadow transition-colors duration-200">Read More</a>
+            </div>
+          `;
+          homeNewsGrid.appendChild(card);
+        });
+      }
+    });
+    </script>
 </body>
-</html> 
+</html>

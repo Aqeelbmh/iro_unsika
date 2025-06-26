@@ -1,6 +1,72 @@
-# UNSIKA International Relation Office - Static HTML Version
+# Unsika International Relation Office - Static HTML Version
 
-This is a static HTML version of the UNSIKA IRO website, converted from the original Next.js project. All functionality has been preserved while removing React dependencies.
+This is a static HTML version of the Unsika IRO website, converted from the original Next.js project. All functionality has been preserved while removing React dependencies.
+
+## Table of Contents
+- [Project Structure](#project-structure)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+
+## Project Structure
+The file structure has been simplified to standard HTML, CSS (via Tailwind CDN), and JavaScript:
+
+- **`index.html`**: The main landing page.
+- **`about.html`**: About Us page with vision, mission, and team.
+- **`programs/`**: Directory containing pages for different programs:
+  - `iup.html`: International Undergraduate Program.
+  - `student-exchange.html`: Student Exchange Program.
+  - `internships.html`: International Internship Program.
+  - `scholarships.html`: Scholarship information.
+- **`partners.html`**: Information about partner universities.
+- **`news.html`**: News and events listing.
+- **`news/{slug}.html`**: Individual news article pages.
+- **`gallery.html`**: Photo and video gallery.
+- **`downloads.html`**: Downloadable documents (brochures, forms).
+- **`contact.html`**: Contact information and form.
+- **`js/`**:
+  - `main.js`: Core JavaScript for interactivity (mobile menu, animations, sliders).
+  - `news-data.js`: Contains the data for news articles.
+- **`public/`**: Contains all static assets like images, logos, and documents.
+
+## Key Features
+- **Static Site**: No server or build process required. Can be hosted on any static hosting provider.
+- **Responsive Design**: Fully responsive layout for all devices.
+- **Interactive UI**: Includes a hero slider, scroll animations, a filterable gallery, and a mobile-friendly navigation menu.
+- **Modular JavaScript**: Code is organized into a main script and a data script for news.
+
+## Pages
+- **Home** (`index.html`): Hero section, about, featured programs, and latest news.
+- **About** (`about.html`): Information about Unsika IRO, vision, mission, and team.
+- **Programs**: Detailed pages for each international program.
+- **Partners**: List of international partner institutions.
+- **News & Events**: Latest updates and articles.
+- **Gallery**: Visual showcase of campus life and events.
+- **Downloads**: Essential documents for students and partners.
+- **Contact**: Office address, contact details, and a map.
+
+## Getting Started
+To run the website locally, simply open any of the `.html` files in your web browser. No special setup is needed.
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the directory:**
+   ```bash
+   cd UNSIKA-IOR
+   ```
+3. **Open `index.html` in your browser:**
+   You can do this by double-clicking the file or using a live server extension in your code editor (like Live Server for VS Code).
+
+## Deployment
+This static website can be deployed to any static hosting service, such as:
+- GitHub Pages
+- Netlify
+- Vercel
+- AWS S3
+
+Simply upload the contents of this directory to your chosen provider. No build step is necessary.
 
 ## Features
 
@@ -44,7 +110,7 @@ This is a static HTML version of the UNSIKA IRO website, converted from the orig
 ## Pages Included
 
 - **Home** (`index.html`): Welcome page with hero slides, featured programs, and latest news
-- **About** (`about.html`): Information about UNSIKA IRO, vision, mission, and team
+- **About** (`about.html`): Information about Unsika IRO, vision, mission, and team
 - **Contact** (`contact.html`): Contact form and information
 - **IUP Program** (`programs/iup.html`): Details about the International Undergraduate Program
 

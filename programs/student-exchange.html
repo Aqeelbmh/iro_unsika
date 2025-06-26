@@ -1,194 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Exchange - UNSIKA International Relation Office</title>
+    <title>Student Exchange - Unsika International Relation Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../../public/assets/favicon.png" sizes="32x32">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: #f0f4f8; /* Light gray background */
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        .active-link {
+            color: #0d9488; /* Teal color for active link */
+            font-weight: 600;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
 <body class="antialiased">
+
     <!-- Navigation -->
-    <nav class="w-full bg-white/90 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4">
+    <nav id="navbar" class="w-full glass-nav sticky top-0 z-50 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <a href="../index.html" class="flex items-center gap-3">
-                    <img src="../public/assets/logo unsika (1).png" alt="UNSIKA Logo" width="80" height="80" class="object-contain">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <img src="../public/assets/logo unsika (1).png" alt="Unsika Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>
                 <div class="hidden lg:flex items-center gap-2">
-                    <a href="../about.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">About Us</a>
-                    <a href="iup.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">IUP Program</a>
-                    <a href="student-exchange.html" class="text-blue-600 bg-blue-50 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
-                    <a href="../partners.html" class="text-gray-600 hover:bg-gray-100 px-4 py-2 rounded-lg font-medium">Partners</a>
-                    <a href="../contact.html" class="bg-blue-500 text-white font-semibold px-5 py-2 rounded-lg">Contact</a>
+                    <a href="../about.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">About Us</a>
+                    <div class="relative dropdown">
+                        <button class="text-teal bg-teal/10 px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                            Programs
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        </button>
+                        <div class="dropdown-menu absolute z-10 hidden bg-white rounded-lg shadow-lg w-56 mt-2">
+                            <a href="iup.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">International Undergraduate Program</a>
+                            <a href="student-exchange.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Student Exchange</a>
+                            <a href="internships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Internships</a>
+                            <a href="scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Scholarships</a>
+                        </div>
+                    </div>
+                    <a href="../partners.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Partners</a>
+                    <a href="../news.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">News & Events</a>
+                    <a href="../gallery.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Gallery</a>
+                    <a href="../downloads.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Downloads</a>
                 </div>
+                <a href="../contact.html" class="hidden lg:inline-block bg-teal text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover transition-all duration-300">Contact Us</a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700 hover:text-teal focus:outline-none">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-4 pt-2 pb-4 space-y-2">
+            <a href="../about.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">About Us</a>
+            <div>
+                <button id="mobile-programs-button" class="w-full text-left flex justify-between items-center text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">
+                    <span>Programs</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+                <div id="mobile-programs-dropdown" class="hidden pl-4 mt-2 space-y-2">
+                    <a href="iup.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">IUP</a>
+                    <a href="student-exchange.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
+                    <a href="internships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Internships</a>
+                    <a href="scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Scholarships</a>
+                </div>
+            </div>
+            <a href="../partners.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Partners</a>
+            <a href="../news.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">News & Events</a>
+            <a href="../gallery.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Gallery</a>
+            <a href="../downloads.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Downloads</a>
+            <a href="../contact.html" class="block bg-teal text-white text-center font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-teal-hover">Contact Us</a>
+        </div>
     </nav>
-
+    
     <!-- Main Content -->
-    <main>
-        <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 py-20">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Student Exchange Program</h1>
-                <p class="text-xl text-gray-600">Experience studying abroad with our partner universities worldwide</p>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative bg-slate-800 text-white py-24 md:py-32">
+            <div class="absolute inset-0">
+                <img src="../public/assets/gallery/IMG_5173.jpg" alt="Student Exchange" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-poppins font-bold mb-4">Student Exchange Program</h1>
+                <p class="text-xl md:text-2xl text-slate-300">Experience studying abroad with our partner universities worldwide.</p>
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="max-w-6xl mx-auto px-4">
+        <!-- Program Overview Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">Program Overview</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Our Student Exchange Program offers Unsika students the opportunity to study at partner universities around the world for one or two semesters. This program enhances cultural understanding, academic excellence, and global networking.
+                </p>
+            </div>
+        </section>
+
+        <!-- About and Destinations Section -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6 text-gray-800">About Student Exchange</h2>
-                        <p class="text-lg text-gray-600 mb-6">
-                            Our Student Exchange Program offers UNSIKA students the opportunity to study at partner universities around the world for one or two semesters. This program enhances cultural understanding, academic excellence, and global networking.
+                    <div class="wow-fadeInLeft">
+                        <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">About Student Exchange</h2>
+                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                            This program allows you to immerse yourself in a new culture, gain a global perspective, and build an international network, all while earning credits towards your Unsika degree.
                         </p>
                         <div class="space-y-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                 </div>
-                                <span class="text-gray-700">Study for 1-2 semesters abroad</span>
+                                <span class="text-slate-700">Study for 1-2 semesters abroad</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h5V4H4zm0 9h5v5H4v-5zm9-9h5v5h-5V4zm0 9h5v5h-5v-5z"></path></svg>
                                 </div>
-                                <span class="text-gray-700">Credits transfer back to UNSIKA</span>
+                                <span class="text-slate-700">Credits transfer back to Unsika</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 </div>
-                                <span class="text-gray-700">Cultural immersion experience</span>
+                                <span class="text-slate-700">Cultural immersion experience</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
+                            <div class="flex items-center gap-4">
+                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0 1H9m3 0h3m-3 12v-1m0 1H9m3 0h3m-6-4.599A2.001 2.001 0 0012 16c1.657 0 3-.895 3-2s-1.343-2-3-2-3 .895-3 2z"></path></svg>
                                 </div>
-                                <span class="text-gray-700">No additional tuition fees</span>
+                                <span class="text-slate-700">No additional tuition fees at partner university</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <img src="../public/assets/gallery/IMG_5173.jpg" alt="Student Exchange" class="w-full h-64 object-cover rounded-lg mb-6">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Available Destinations</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li>• Japan - Tokyo University of Technology</li>
-                            <li>• South Korea - Seoul National University</li>
-                            <li>• Thailand - Mahidol University</li>
-                            <li>• Malaysia - Universiti Teknologi MARA</li>
-                            <li>• Singapore - National University of Singapore</li>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 wow-fadeInRight">
+                        <h3 class="text-2xl font-poppins font-bold mb-6 text-slate-900">Available Destinations</h3>
+                        <ul class="space-y-3 text-slate-600">
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg> Japan - Tokyo University of Technology</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg> South Korea - Seoul National University</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg> Thailand - Mahidol University</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg> Malaysia - Universiti Teknologi MARA</li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path></svg> Singapore - National University of Singapore</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Program Benefits</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Global Perspective</h3>
-                        <p class="text-gray-600">Develop a broader worldview and understanding of different cultures and academic approaches.</p>
+        <!-- Application Process Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-poppins font-bold text-center mb-12 text-slate-900">Application Process</h2>
+                <div class="space-y-10 relative pl-12">
+                     <div class="absolute left-0 top-0 h-full border-l-2 border-dashed border-teal-300 ml-[23px]"></div>
+                    <div class="relative wow-fadeInUp">
+                        <div class="absolute -left-12 top-0 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold font-poppins text-xl">1</div>
+                        <h3 class="text-xl font-poppins font-semibold mb-2 text-slate-800">Submit Application</h3>
+                        <p class="text-slate-600">Complete the online application form with required documents including academic transcripts, recommendation letters, and a motivation statement.</p>
                     </div>
-                    
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Academic Excellence</h3>
-                        <p class="text-gray-600">Access to world-class education and research facilities at partner universities.</p>
+                    <div class="relative wow-fadeInUp" data-wow-delay="0.2s">
+                        <div class="absolute -left-12 top-0 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold font-poppins text-xl">2</div>
+                        <h3 class="text-xl font-poppins font-semibold mb-2 text-slate-800">Interview</h3>
+                        <p class="text-slate-600">Selected candidates will be invited for an interview to assess their motivation, academic performance, and language proficiency.</p>
                     </div>
-                    
-                    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
-                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800">Networking</h3>
-                        <p class="text-gray-600">Build international connections and friendships that last a lifetime.</p>
+                    <div class="relative wow-fadeInUp" data-wow-delay="0.4s">
+                        <div class="absolute -left-12 top-0 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold font-poppins text-xl">3</div>
+                        <h3 class="text-xl font-poppins font-semibold mb-2 text-slate-800">Selection & Placement</h3>
+                        <p class="text-slate-600">Successful candidates will be matched with partner universities based on their academic interests and available programs.</p>
+                    </div>
+                    <div class="relative wow-fadeInUp" data-wow-delay="0.6s">
+                        <div class="absolute -left-12 top-0 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center font-bold font-poppins text-xl">4</div>
+                        <h3 class="text-xl font-poppins font-semibold mb-2 text-slate-800">Pre-departure Orientation</h3>
+                        <p class="text-slate-600">Attend orientation sessions covering cultural preparation, academic requirements, and practical arrangements for your study abroad period.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="max-w-4xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Application Process</h2>
-                <div class="space-y-8">
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">1</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Submit Application</h3>
-                            <p class="text-gray-600">Complete the online application form with required documents including academic transcripts, recommendation letters, and motivation statement.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">2</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Interview</h3>
-                            <p class="text-gray-600">Selected candidates will be invited for an interview to assess their motivation, academic performance, and language proficiency.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">3</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Selection & Placement</h3>
-                            <p class="text-gray-600">Successful candidates will be matched with partner universities based on their academic interests and available programs.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start gap-6">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span class="text-white font-bold">4</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">Pre-departure Orientation</h3>
-                            <p class="text-gray-600">Attend orientation sessions covering cultural preparation, academic requirements, and practical arrangements.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 bg-blue-50">
-            <div class="max-w-4xl mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-8 text-gray-800">Ready to Apply?</h2>
-                <p class="text-lg text-gray-600 mb-8">Start your international academic journey today</p>
+        <!-- CTA Section -->
+        <section class="py-20 bg-teal-500">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+                <h2 class="text-3xl font-poppins font-bold mb-4">Ready to Apply?</h2>
+                <p class="text-lg text-teal-100 mb-8">Start your international academic journey today and broaden your horizons.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="../downloads.html" class="bg-blue-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                    <a href="../downloads.html" class="bg-white text-teal-600 font-semibold px-8 py-3 rounded-lg hover:bg-teal-50 transition-colors duration-300">
                         Download Application Form
                     </a>
-                    <a href="../contact.html" class="bg-gray-500 text-white font-semibold px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors duration-300">
+                    <a href="../contact.html" class="border border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-teal-600 transition-colors duration-300">
                         Contact Us
                     </a>
                 </div>
@@ -197,14 +212,113 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400">© 2024 UNSIKA International Relation Office. All rights reserved.</p>
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Branding Section -->
+          <div class="lg:col-span-2 pr-8">
+            <a href="../index.html" class="flex items-center gap-3 mb-4">
+              <img src="../public/assets/logo unsika (1).png" alt="Unsika Logo" width="80" height="80" class="bg-white p-2 rounded-lg">
+              <span class="font-bold text-gray-700 text-xl">International Relation Office</span>
+            </a>
+            <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+              Fostering global connections and opportunities at Universitas Singaperbangsa Karawang.
+            </p>
+          </div>
+
+          <!-- Links Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:col-span-2">
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="../about.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">About Us</a></li>
+                <li><a href="../news.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">News & Events</a></li>
+                <li><a href="../gallery.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Gallery</a></li>
+                <li><a href="../downloads.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Downloads</a></li>
+              </ul>
             </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Programs</h4>
+              <ul class="space-y-2">
+                <li><a href="student-exchange.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Student Exchange</a></li>
+                <li><a href="internships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Internships</a></li>
+                <li><a href="scholarships.html" class="text-gray-500 hover:text-blue-600 transition-colors text-sm">Scholarships</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-700 mb-4 tracking-wide">Contact Us</h4>
+              <ul class="space-y-2 text-sm text-gray-500">
+                <li><a href="mailto:iro@unsika.ac.id" class="hover:text-blue-600">iro@unsika.ac.id</a></li>
+                <li><a href="http://iro.unsika.ac.id" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">iro.unsika.ac.id</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-200 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
+            <p class="text-gray-500 text-sm">&copy; 2025 Unsika International Relation Office. All rights reserved.</p>
+
+            <!-- Social Media -->
+            <div class="flex gap-4 items-center">
+              <a href="https://www.instagram.com/international.affairs.unsika/" aria-label="Instagram" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+              <a href="https://www.youtube.com/@internationalaffairsunsika783" aria-label="YouTube" class="text-gray-400 hover:text-blue-600 transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>
+        // Simple WOW.js-like scroll animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const animatedElements = document.querySelectorAll('.wow-fadeInUp, .wow-fadeInLeft, .wow-fadeInRight');
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Add animation styles to head
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInLeft {
+                from { opacity: 0; transform: translateX(-20px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            @keyframes fadeInRight {
+                from { opacity: 0; transform: translateX(20px); }
+                to { opacity: 1; transform: translateX(0); }
+            }
+            .wow-fadeInUp { opacity: 0; }
+            .wow-fadeInLeft { opacity: 0; }
+            .wow-fadeInRight { opacity: 0; }
+            .animate-fade-in {
+                animation-duration: 0.8s;
+                animation-fill-mode: both;
+            }
+            .wow-fadeInUp.animate-fade-in { animation-name: fadeInUp; }
+            .wow-fadeInLeft.animate-fade-in { animation-name: fadeInLeft; }
+            .wow-fadeInRight.animate-fade-in { animation-name: fadeInRight; }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html> 
