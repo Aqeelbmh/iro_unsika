@@ -321,4 +321,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
         renderGallery();
     }
+
+    // Desktop navbar Programs dropdown fix
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownMenu = dropdown ? dropdown.querySelector('.dropdown-menu') : null;
+    let dropdownTimeout;
+    if (dropdown && dropdownMenu) {
+        dropdown.addEventListener('mouseenter', () => {
+            clearTimeout(dropdownTimeout);
+            dropdownMenu.classList.add('show');
+        });
+        dropdown.addEventListener('mouseleave', () => {
+            dropdownTimeout = setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 120); // small delay for forgiving UX
+        });
+        dropdownMenu.addEventListener('mouseenter', () => {
+            clearTimeout(dropdownTimeout);
+            dropdownMenu.classList.add('show');
+        });
+        dropdownMenu.addEventListener('mouseleave', () => {
+            dropdownTimeout = setTimeout(() => {
+                dropdownMenu.classList.remove('show');
+            }, 120);
+        });
+    }
 }); 

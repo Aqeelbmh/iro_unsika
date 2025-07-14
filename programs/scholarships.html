@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarships - Unsika International Relation Office</title>
+    <title>Global Opportunities - Unsika International Relation Office</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +25,23 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .dropdown:hover .dropdown-menu {
+        /* .dropdown:hover .dropdown-menu {
             display: block;
+        } */
+        .dropdown-menu.show {
+            display: block !important;
+        }
+        .hero-image-bg,
+        .hero-image-fg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.2; /* Adjust as needed for background effect */
+            z-index: -1; /* Ensure it's behind other content */
         }
     </style>
 </head>
@@ -50,7 +65,7 @@
                             <a href="iup.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">International Undergraduate Program</a>
                             <a href="student-exchange.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Student Exchange</a>
                             <a href="internships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Internships</a>
-                            <a href="scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Scholarships</a>
+                            <a href="scholarships.html" class="block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-teal">Global Opportunities</a>
                         </div>
                     </div>
                     <a href="../partners.html" class="text-gray-700 hover:text-teal px-4 py-2 rounded-lg font-medium transition-colors">Partners</a>
@@ -76,7 +91,7 @@
                     <a href="iup.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">IUP</a>
                     <a href="student-exchange.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Student Exchange</a>
                     <a href="internships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Internships</a>
-                    <a href="scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Scholarships</a>
+                    <a href="scholarships.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Global Opportunities</a>
                 </div>
             </div>
             <a href="../partners.html" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 rounded-lg font-medium">Partners</a>
@@ -89,149 +104,115 @@
 
     <!-- Main Content -->
     <main class="pt-20">
-        <!-- Hero Section -->
-        <section class="relative bg-slate-800 text-white py-24 md:py-32">
-            <div class="absolute inset-0">
-                <img src="../public/assets/gallery/IMG_9831.jpg" alt="Scholarships" class="w-full h-full object-cover opacity-30">
-            </div>
-            <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-4xl md:text-5xl font-poppins font-bold mb-4">Scholarships</h1>
-                <p class="text-xl md:text-2xl text-slate-300">Access various scholarship opportunities for international education.</p>
-            </div>
-        </section>
+      <!-- Hero Section -->
+      <section class="relative bg-gradient-to-br from-blue-900 via-blue-700 to-blue-500 text-white py-20 md:py-28 mb-12 overflow-hidden flex flex-col items-center justify-center">
+        <div class="absolute inset-0 opacity-20 pointer-events-none select-none flex items-center justify-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Equirectangular-projection.jpg/1200px-Equirectangular-projection.jpg" alt="World Map" class="w-full h-full object-cover object-center" style="mix-blend-mode: lighten;">
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4 text-center">
+          <h1 class="text-4xl md:text-5xl font-poppins font-bold mb-4">Global Opportunities</h1>
+          <p class="text-xl md:text-2xl text-blue-100 mb-4">Explore scholarships, fellowships, and international programs to empower your education and career worldwide.</p>
+        </div>
+      </section>
 
-        <!-- Intro Section -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">Funding Your Studies</h2>
-                <p class="text-lg text-slate-600 leading-relaxed">
-                    Unsika is committed to making quality education accessible. We offer various scholarship opportunities to support international and domestic students, recognizing academic excellence, leadership potential, and financial need. Explore the options available to help you achieve your academic goals.
-                </p>
-            </div>
-        </section>
+      <!-- Search/Filter Bar (UI only) -->
+      <section class="max-w-3xl mx-auto px-4 mb-10">
+        <form class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <input type="text" placeholder="Search by name, country, or type..." class="w-full sm:w-auto flex-1 px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <select class="px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option>All Types</option>
+            <option>Scholarship</option>
+            <option>Fellowship</option>
+            <option>Exchange</option>
+          </select>
+          <select class="px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option>All Countries</option>
+            <option>UK</option>
+            <option>Europe</option>
+            <option>USA</option>
+            <option>Japan</option>
+            <option>Germany</option>
+          </select>
+        </form>
+      </section>
 
-        <!-- Scholarship Types Section -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl font-poppins font-bold mb-6 text-slate-900">Types of Scholarships</h2>
-                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                            We provide a range of scholarships to cater to the diverse needs of our student community. Whether you are an outstanding academic performer, a research-focused student, or in need of financial support, there may be a scholarship for you.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                </div>
-                                <span class="text-slate-700">Full and partial tuition coverage</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                               <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2m0 0h10a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2m0 0a2 2 0 002 2h2m0 0M9 7h.01M9 11h.01M13 15h.01M17 15h.01"></path></svg>
-                                </div>
-                                <span class="text-slate-700">Living allowance and stipend support</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-8 h-8 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                </div>
-                                <span class="text-slate-700">Merit-based and need-based awards</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-lg p-8">
-                        <h3 class="text-2xl font-poppins font-bold mb-6 text-slate-900">Available Scholarships</h3>
-                        <div class="space-y-4">
-                            <div class="border-l-4 border-teal-500 pl-4 py-2">
-                                <h4 class="font-poppins font-semibold text-slate-800">Unsika Excellence Scholarship</h4>
-                                <p class="text-sm text-slate-600">Full tuition coverage for outstanding international students.</p>
-                            </div>
-                            <div class="border-l-4 border-cyan-500 pl-4 py-2">
-                                <h4 class="font-poppins font-semibold text-slate-800">Merit-Based Scholarship</h4>
-                                <p class="text-sm text-slate-600">Partial tuition coverage based on academic performance.</p>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4 py-2">
-                                <h4 class="font-poppins font-semibold text-slate-800">Research Scholarship</h4>
-                                <p class="text-sm text-slate-600">Funding for students engaged in research projects.</p>
-                            </div>
-                            <div class="border-l-4 border-slate-500 pl-4 py-2">
-                                <h4 class="font-poppins font-semibold text-slate-800">Need-Based Grant</h4>
-                                <p class="text-sm text-slate-600">Financial assistance for students with demonstrated need.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <!-- Opportunities Grid -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 text-blue-900">Featured Global Opportunities</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card Example -->
+          <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-start transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-50">
+            <img src="https://www.chevening.org/wp-content/uploads/2017/06/cropped-chevening-logo-1.png" alt="Chevening" class="h-10 mb-4">
+            <h3 class="font-bold text-lg mb-2 text-blue-800">Chevening Scholarships (UK)</h3>
+            <p class="text-slate-600 mb-4">Fully-funded master’s degree in the UK for future leaders. <br> <span class='text-xs text-slate-400'>Deadline: Nov 2024</span></p>
+            <div class="flex gap-3 mt-auto">
+              <a href="https://www.chevening.org/" target="_blank" class="text-blue-600 hover:underline font-medium">More Info</a>
+              <a href="https://www.chevening.org/apply/" target="_blank" class="bg-blue-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-blue-700 transition">Apply</a>
             </div>
-        </section>
+          </div>
+          <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-start transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Erasmus%2B_Logo.png" alt="Erasmus+" class="h-10 mb-4">
+            <h3 class="font-bold text-lg mb-2 text-blue-800">Erasmus+ (Europe)</h3>
+            <p class="text-slate-600 mb-4">Study, train, or intern in Europe with generous funding. <br> <span class='text-xs text-slate-400'>Deadline: Varies</span></p>
+            <div class="flex gap-3 mt-auto">
+              <a href="https://erasmus-plus.ec.europa.eu/" target="_blank" class="text-blue-600 hover:underline font-medium">More Info</a>
+              <a href="https://erasmus-plus.ec.europa.eu/opportunities/individuals/students" target="_blank" class="bg-blue-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-blue-700 transition">Apply</a>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-start transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Fulbright_logo.png" alt="Fulbright" class="h-10 mb-4">
+            <h3 class="font-bold text-lg mb-2 text-blue-800">Fulbright Program (USA)</h3>
+            <p class="text-slate-600 mb-4">Grants for graduate study, research, or teaching in the USA. <br> <span class='text-xs text-slate-400'>Deadline: May 2024</span></p>
+            <div class="flex gap-3 mt-auto">
+              <a href="https://foreign.fulbrightonline.org/" target="_blank" class="text-blue-600 hover:underline font-medium">More Info</a>
+              <a href="https://foreign.fulbrightonline.org/applicants" target="_blank" class="bg-blue-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-blue-700 transition">Apply</a>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-start transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/MEXT_Logo.png" alt="MEXT" class="h-10 mb-4">
+            <h3 class="font-bold text-lg mb-2 text-blue-800">MEXT Scholarship (Japan)</h3>
+            <p class="text-slate-600 mb-4">Fully-funded undergraduate and graduate study in Japan. <br> <span class='text-xs text-slate-400'>Deadline: May 2024</span></p>
+            <div class="flex gap-3 mt-auto">
+              <a href="https://www.studyinjapan.go.jp/en/smap-stopj-applications-scholarships-mext.html" target="_blank" class="text-blue-600 hover:underline font-medium">More Info</a>
+              <a href="https://www.studyinjapan.go.jp/en/smap-stopj-applications-scholarships-mext.html" target="_blank" class="bg-blue-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-blue-700 transition">Apply</a>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-start transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl border border-blue-50">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/DAAD_Logo.png" alt="DAAD" class="h-10 mb-4">
+            <h3 class="font-bold text-lg mb-2 text-blue-800">DAAD Scholarships (Germany)</h3>
+            <p class="text-slate-600 mb-4">Funding for study and research in Germany at all levels. <br> <span class='text-xs text-slate-400'>Deadline: Varies</span></p>
+            <div class="flex gap-3 mt-auto">
+              <a href="https://www.daad.de/en/study-and-research-in-germany/scholarships-database/" target="_blank" class="text-blue-600 hover:underline font-medium">More Info</a>
+              <a href="https://www.daad.de/en/study-and-research-in-germany/scholarships-database/" target="_blank" class="bg-blue-600 text-white px-4 py-1 rounded-lg font-semibold hover:bg-blue-700 transition">Apply</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- Eligibility Criteria Section -->
-        <section class="py-16 md:py-24 bg-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-poppins font-bold text-center mb-12 text-slate-900">Eligibility & Application</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    <div class="bg-slate-50 rounded-lg p-8">
-                        <h3 class="text-xl font-poppins font-semibold mb-6 text-slate-800">General Requirements</h3>
-                        <ul class="space-y-3 text-slate-600">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Minimum GPA of 3.5 on a 4.0 scale (or equivalent).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Proof of English proficiency (e.g., TOEFL, IELTS).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Strong academic record and letters of recommendation.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Demonstrated leadership and extracurricular involvement.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-slate-50 rounded-lg p-8">
-                        <h3 class="text-xl font-poppins font-semibold mb-6 text-slate-800">Required Documents</h3>
-                        <ul class="space-y-3 text-slate-600">
-                             <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <span>Completed scholarship application form.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <span>Official academic transcripts and certificates.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <span>Personal statement or motivation letter.</span>
-                            </li>
-                             <li class="flex items-start gap-3">
-                                <svg class="w-5 h-5 text-teal-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <span>Passport copy and other identification documents.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Tips Section -->
+      <section class="max-w-3xl mx-auto px-4 mb-20">
+        <h2 class="text-xl md:text-2xl font-bold text-blue-900 mb-4">Tips for Global Opportunities Applications</h2>
+        <ul class="list-disc list-inside text-slate-700 space-y-2">
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 17l4 4 4-4m0-5V3m0 0L8 7m8-4L8 7"></path></svg>Start your search and application process early.</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>Prepare all required documents (transcripts, recommendations, essays).</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Tailor your application and essays to each opportunity’s goals.</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path></svg>Highlight your achievements, leadership, and community involvement.</li>
+          <li class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2a4 4 0 004 4h2a4 4 0 004-4z"></path></svg>Double-check deadlines and submit before the due date.</li>
+        </ul>
+      </section>
 
-        <!-- CTA Section -->
-        <section class="py-20 bg-teal-500">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-                <h2 class="text-3xl font-poppins font-bold mb-4">Apply for a Scholarship</h2>
-                <p class="text-lg text-teal-100 mb-8">Don't miss the opportunity to fund your education. Check deadlines and apply today.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="../downloads.html" class="bg-white text-teal-600 font-semibold px-8 py-3 rounded-lg hover:bg-teal-50 transition-colors duration-300">
-                        View Application Forms
-                    </a>
-                    <a href="../contact.html" class="border border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-teal-600 transition-colors duration-300">
-                        Contact for Details
-                    </a>
-                </div>
-            </div>
-        </section>
+      <!-- Call to Action -->
+      <section class="max-w-3xl mx-auto px-4 mb-20 text-center">
+        <div class="bg-blue-50 rounded-2xl p-8 shadow-lg flex flex-col items-center gap-4">
+          <h3 class="text-2xl font-bold text-blue-800 mb-2">Stay Updated on New Opportunities</h3>
+          <p class="text-blue-700 mb-4">Sign up to get notified about the latest global scholarships, fellowships, and programs, or submit an opportunity to be featured.</p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+            <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">Notify Me</button>
+            <button class="bg-white text-blue-700 border border-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition">Submit Opportunity</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -295,6 +276,26 @@
       </div>
     </footer>
 
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Dropdown for desktop: already works with CSS hover
+  // Dropdown for mobile/touch: toggle on click
+  var dropdownBtn = document.querySelector('.dropdown > button');
+  var dropdownMenu = document.querySelector('.dropdown-menu');
+  if (dropdownBtn && dropdownMenu) {
+    dropdownBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      dropdownMenu.classList.toggle('hidden');
+    });
+    // Optional: close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+      }
+    });
+  }
+});
+</script>
     <script src="../../js/main.js" defer></script>
 </body>
 </html> 

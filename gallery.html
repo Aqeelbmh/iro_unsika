@@ -43,6 +43,9 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .dropdown-menu.show {
+            display: block !important;
+        }
         .gallery-item {
             break-inside: avoid;
             margin-bottom: 1rem;
@@ -74,9 +77,6 @@
             background-color: #4fd1c5;
             color: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        .dropdown:hover .dropdown-menu {
-            display: block;
         }
         .modal { display: none; }
         .modal.is-open { display: flex; }
@@ -312,6 +312,7 @@
       </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // Rotating hero background images
